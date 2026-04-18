@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service — E Marketing Lab co.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+  ═══════════════════════════════════════════════════════ -->
+  <div class="announcement-bar">
+    Limited time — transform your brand today.<a href="best-offers.html">Book your consultation Now →</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════ -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="images/logo.png" alt="E Marketing Lab" style="width:36px;height:36px;object-fit:contain;" />
+        <span>E Marketing Lab co.</span>
+      </a>
+
+      <nav class="navbar__links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="service-detail.html" class="active">Services</a>
+          <div class="dropdown-menu">
+            <a href="service-detail.html?service=media-buying"><span class="dd-icon">🎙️</span>Media Buying &amp; Performance Ads</a>
+            <a href="service-detail.html?service=digital-marketing"><span class="dd-icon">📊</span>Digital Marketing &amp; Strategy</a>
+            <a href="service-detail.html?service=seo"><span class="dd-icon">📈</span>SEO &amp; Organic Growth</a>
+            <a href="service-detail.html?service=content"><span class="dd-icon">📰</span>Content Marketing &amp; Creation</a>
+            <a href="service-detail.html?service=design"><span class="dd-icon">💡</span>Creative Design &amp; Animation</a>
+            <a href="service-detail.html?service=web"><span class="dd-icon">&lt;/&gt;</span>Web &amp; Digital Solutions</a>
+            <a href="service-detail.html?service=training"><span class="dd-icon">🎓</span>Training &amp; Capacity Building</a>
+            <a href="service-detail.html?service=crm"><span class="dd-icon">🔗</span>CRM &amp; Growth Infrastructure</a>
+            <a href="service-detail.html?service=gamified"><span class="dd-icon">🎮</span>Gamified Marketing Campaigns</a>
+            <a href="service-detail.html?service=strategy"><span class="dd-icon">⏱️</span>Future-Proof Strategy</a>
+          </div>
+        </div>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="about.html">About</a>
+        <a href="best-offers.html">Best Offers</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <div class="search-bar">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="#6B21A8" stroke-width="1.5"/><path d="M10.5 10.5L13.5 13.5" stroke="#6B21A8" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="text" placeholder="Search services…" />
+        </div>
+        <a href="checkout.html" class="nav-icon-btn cart-btn" aria-label="Cart" style="position:relative;">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a>
+        <a href="#" class="nav-icon-btn" aria-label="Wishlist">♡</a>
+        <a href="#" class="nav-icon-btn" aria-label="Notifications">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 16.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+        <button class="nav-lang-btn">EN</button>
+        <a href="signin.html" class="nav-signin-btn">Sign In</a>
+        <button class="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="service-detail.html">Services</a>
+      <a href="success-stories.html">Success Stories</a>
+      <a href="about.html">About</a>
+      <a href="best-offers.html">Best Offers</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════
+       BREADCRUMB
+  ═══════════════════════════════════════════════════════ -->
+  <div style="background:var(--c-lavender-2); border-bottom:1px solid var(--c-border); padding:12px 0;">
+    <div class="container" style="font-size:13px; color:#7c5ea0;">
+      <a href="index.html" style="color:var(--c-purple);">Home</a>
+      <span style="margin:0 8px; opacity:.5;">/</span>
+      <a href="#" style="color:var(--c-purple);">Services</a>
+      <span style="margin:0 8px; opacity:.5;">/</span>
+      <span id="breadcrumb-service">Media Buying &amp; Performance Advertising</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SERVICE DETAIL
+  ═══════════════════════════════════════════════════════ -->
+  <main class="service-detail">
+    <div class="service-detail__inner">
+
+      <!-- Service Meta -->
+      <div class="service-detail__meta fade-up">
+        <div class="service-detail__title-row">
+          <div class="service-detail__icon" id="service-icon">🎙️</div>
+          <h1 class="service-detail__name" id="service-name">Media Buying &amp; Performance Advertising</h1>
+        </div>
+        <p class="service-detail__description" id="service-desc">
+          We help businesses grow through targeted digital ads using AI to reach the
+          right audience, optimize performance, and maximize ROI.
+        </p>
+      </div>
+
+      <!-- Body: media + purchase -->
+      <div class="service-detail__body">
+
+        <!-- Left: Media -->
+        <div class="service-media fade-up fade-up-1">
+          <div class="service-media__placeholder">
+            <!-- Video / image placeholder -->
+          </div>
+          <p class="service-media__hint">
+            Not sure which plan fits you? Watch this quick breakdown.
+          </p>
+
+          <!-- Service switcher tabs -->
+          <div style="margin-top:32px;">
+            <p style="font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--c-purple); margin-bottom:14px;">Other Services</p>
+            <div style="display:flex; flex-direction:column; gap:8px;" id="service-tabs">
+              <!-- injected by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Purchase panel -->
+        <aside class="service-purchase fade-up fade-up-2">
+
+          <!-- Tier selector -->
+          <div class="tier-selector">
+            <p class="tier-selector__label">Select service tier</p>
+            <div class="tier-options">
+              <label class="tier-option">
+                <input type="radio" name="tier" value="50" checked onchange="updatePrice(this)" />
+                <div class="tier-option__dot"></div>
+                <span class="tier-option__name">Starter</span>
+                <span class="tier-option__price">$50</span>
+              </label>
+              <label class="tier-option">
+                <input type="radio" name="tier" value="100" onchange="updatePrice(this)" />
+                <div class="tier-option__dot"></div>
+                <span class="tier-option__name">Standard</span>
+                <span class="tier-option__price">$100</span>
+              </label>
+              <label class="tier-option">
+                <input type="radio" name="tier" value="500" onchange="updatePrice(this)" />
+                <div class="tier-option__dot"></div>
+                <span class="tier-option__name">Advanced</span>
+                <span class="tier-option__price">$500</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="purchase-actions">
+            <button class="wishlist-btn" id="wishlist-btn" onclick="toggleWishlist(this)" aria-label="Add to wishlist">♡</button>
+            <button class="btn btn--primary add-to-cart-btn" onclick="addToCart()">Add to cart</button>
+          </div>
+
+          <!-- Rating -->
+          <div class="rating-widget">
+            <span class="rating-widget__label">Rate</span>
+            <div class="stars" id="stars" role="group" aria-label="Rate this service">
+              <button class="star" data-value="1" onclick="setRating(1)" aria-label="1 star">★</button>
+              <button class="star" data-value="2" onclick="setRating(2)" aria-label="2 stars">★</button>
+              <button class="star" data-value="3" onclick="setRating(3)" aria-label="3 stars">★</button>
+              <button class="star" data-value="4" onclick="setRating(4)" aria-label="4 stars">★</button>
+              <button class="star" data-value="5" onclick="setRating(5)" aria-label="5 stars">★</button>
+            </div>
+          </div>
+
+          <!-- Added confirmation toast -->
+          <div id="cart-toast" style="display:none; background:var(--c-lavender); border:1px solid var(--c-border); border-radius:var(--radius-md); padding:14px 18px; font-size:14px; color:var(--c-purple); font-weight:500;">
+            ✓ Added to cart! <a href="checkout.html" style="color:var(--c-purple); text-decoration:underline;">View cart</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       NEWSLETTER + FOOTER (same as index)
+  ═══════════════════════════════════════════════════════ -->
+  <section class="newsletter-banner">
+    <div class="newsletter-banner__inner">
+      <h2 class="newsletter-banner__heading">Join Us for More Updates</h2>
+      <div class="newsletter-banner__form">
+        <div class="newsletter-input-wrap">
+          <input type="email" placeholder="Enter your email" />
+        </div>
+        <button class="btn btn--orange">Join Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contact-section" id="contact">
+    <div class="contact-section__inner">
+      <div class="contact-form-wrapper">
+        <p class="contact-eyebrow">Let's bring your vision to life</p>
+        <h2 class="contact-heading">Start A New Collaboration With Us</h2>
+        <form class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-field"><input type="text" placeholder="Your Name" /></div>
+            <div class="form-field"><input type="email" placeholder="Email Address" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><input type="tel" placeholder="Phone Number" /></div>
+            <div class="form-field"><input type="text" placeholder="Company Name" /></div>
+          </div>
+          <div class="form-field form-field--full">
+            <div class="service-select-wrap">
+              <select>
+                <option value="" disabled selected>Select Service Interest</option>
+                <option>Media Buying &amp; Performance Advertising</option>
+                <option>Digital Marketing &amp; Strategy</option>
+                <option>SEO &amp; Organic Growth</option>
+                <option>Content Marketing &amp; Creation</option>
+                <option>Creative Design &amp; Animation Solutions</option>
+                <option>Web &amp; Digital Solutions</option>
+                <option>Training &amp; Capacity Building</option>
+                <option>CRM, Communication &amp; Growth Infrastructure</option>
+                <option>Gamified Marketing Campaigns</option>
+                <option>Future-Proof Strategy Services</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <p class="budget-label">SELECT YOUR BUDGET</p>
+            <div class="budget-options">
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">50 – 150 USD</button>
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">150 – 500 USD</button>
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">500 – 1000 USD</button>
+            </div>
+          </div>
+          <div class="form-field form-field--full">
+            <textarea placeholder="Tell us about your project" maxlength="500" rows="5" oninput="updateCharCount(this)"></textarea>
+            <div class="char-count"><span>Maximum 500 characters</span><span>0/500</span></div>
+          </div>
+          <button type="submit" class="btn btn--orange btn--full">CONTACT US</button>
+        </form>
+      </div>
+      <aside class="contact-info">
+        <div class="contact-info__logo">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 10 C10 10, 6 15, 6 18 C6 21, 10 26, 18 26 C26 26, 30 21, 30 18 C30 15, 26 10, 18 10" stroke="url(#fcg)" stroke-width="4" stroke-linecap="round" fill="none"/><defs><linearGradient id="fcg" x1="6" y1="10" x2="30" y2="26" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C026D3"/><stop offset="100%" stop-color="#F97316"/></linearGradient></defs></svg>
+          <span>E Marketing Lab co.</span>
+        </div>
+        <div class="contact-info__item">
+          <span class="contact-info__label">Email</span>
+          <div class="contact-info__value-row">
+            <span class="contact-info__value">EMarketingLab.co@gmail.com</span>
+            <button class="copy-btn" onclick="copyText('EMarketingLab.co@gmail.com', this)" aria-label="Copy email">
+              <svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="9" rx="1" stroke="#6B21A8" stroke-width="1.2"/><path d="M2 2h7v2H2z" stroke="#6B21A8" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <span class="contact-info__label">Phone</span>
+          <div class="contact-info__value-row">
+            <span class="contact-info__value">+970593412</span>
+            <button class="copy-btn" aria-label="Copy phone">
+              <svg viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="9" rx="1" stroke="#6B21A8" stroke-width="1.2"/><path d="M2 2h7v2H2z" stroke="#6B21A8" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="contact-info__social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-icon" aria-label="TikTok">♪</a>
+            <a href="#" class="social-icon" aria-label="Instagram">◎</a>
+            <a href="#" class="social-icon" aria-label="Facebook">f</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* ── Service data ─────────────────────────────── */
+    const SERVICES = [
+      { id: 'media-buying',      img: 'images/Microphone.png',        name: 'Media Buying & Performance Advertising',   desc: 'We help businesses grow through targeted digital ads using AI to reach the right audience, optimize performance, and maximize ROI.' },
+      { id: 'digital-marketing', img: 'images/Film Reel.png',         name: 'Digital Marketing & Strategy',             desc: 'We craft end-to-end digital strategies that align with your business goals, covering paid, organic, and brand channels.' },
+      { id: 'seo',               img: 'images/Increase.png',          name: 'SEO & Organic Growth',                     desc: 'We improve your website\'s visibility on search engines through keyword optimization, content enhancement, and link building—driving sustainable, long-term traffic without paid ads.' },
+      { id: 'content',           img: 'images/Web Design.png',        name: 'Content Marketing & Creation',             desc: 'We craft engaging content, from web copy and blogs to social media posts and short-form videos. Through powerful storytelling, we help build a strong and memorable brand.' },
+      { id: 'design',            img: 'images/Idea.png',              name: 'Creative Design & Animation Solutions',    desc: 'We create engaging designs, animations, and AI-generated visuals that capture attention and communicate your message clearly.' },
+      { id: 'web',               img: 'images/Code.png',              name: 'Web & Digital Solutions',                 desc: 'We build modern websites, web and mobile apps, and e-commerce platforms. Our solutions combine creative design and advanced technology to deliver a seamless digital experience.' },
+      { id: 'training',          img: 'images/Graduation Cap.png',    name: 'Training & Capacity Building',             desc: 'We provide hands-on training and workshops to help companies master digital marketing. Our programs empower teams to use tools, run campaigns, and analyze results effectively.' },
+      { id: 'crm',               img: 'images/Customer Support.png',  name: 'CRM, Communication & Growth Infrastructure', desc: 'We help businesses streamline customer management and communication while building systems for scalable growth.' },
+      { id: 'gamified',          img: 'images/PS Controller.png',     name: 'Gamified Marketing Campaigns',             desc: 'We create interactive, game-based campaigns—such as quizzes, challenges, and rewards—to boost engagement and capture attention.' },
+      { id: 'strategy',          img: 'images/Future.png',            name: 'Future-Proof Strategy Services',           desc: 'We build forward-thinking marketing strategies powered by data, AI, and scalable systems—ensuring your business adapts, grows, and stays competitive.' },
+    ];
+
+    /* ── Boot ─────────────────────────────────────── */
+    const params  = new URLSearchParams(window.location.search);
+    const current = params.get('service') || 'media-buying';
+    const svc     = SERVICES.find(s => s.id === current) || SERVICES[0];
+
+    const iconEl = document.getElementById('service-icon');
+    iconEl.innerHTML = `<img src="${svc.img}" alt="" style="width:28px;height:28px;object-fit:contain;" />`;
+    document.getElementById('service-name').innerHTML        = svc.name;
+    document.getElementById('service-desc').textContent      = svc.desc;
+    document.getElementById('breadcrumb-service').innerHTML  = svc.name;
+    document.title = svc.name + ' — E Marketing Lab co.';
+
+    /* render sidebar tabs */
+    const tabsEl = document.getElementById('service-tabs');
+    SERVICES.forEach(s => {
+      const a = document.createElement('a');
+      a.href = `service-detail.html?service=${s.id}`;
+      a.style.cssText = `display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:${s.id === current ? '600' : '400'};background:${s.id === current ? 'var(--c-lavender)' : 'transparent'};color:var(--c-ink);border:1px solid ${s.id === current ? 'var(--c-border)' : 'transparent'};transition:all .2s;`;
+      a.innerHTML = `<img src="${s.img}" alt="" style="width:20px;height:20px;object-fit:contain;flex-shrink:0;" /><span>${s.name}</span>`;
+      tabsEl.appendChild(a);
+    });
+
+    /* ── Interactions ─────────────────────────────── */
+    let currentRating = 0;
+    let inWishlist    = false;
+
+    function setRating(val) {
+      currentRating = val;
+      document.querySelectorAll('.star').forEach((s, i) => {
+        s.style.color = i < val ? 'var(--c-star)' : '#D1C4E9';
+      });
+    }
+
+    function toggleWishlist(btn) {
+      inWishlist = !inWishlist;
+      btn.textContent  = inWishlist ? '♥' : '♡';
+      btn.style.color  = inWishlist ? '#e11d48' : '';
+      btn.style.borderColor = inWishlist ? '#e11d48' : '';
+      btn.style.background  = inWishlist ? '#fff5f7' : '';
+    }
+
+    function updatePrice(radio) { /* tier selection handled by CSS radio state */ }
+
+    function addToCart() {
+      const tier   = document.querySelector('input[name="tier"]:checked');
+      const price  = tier ? tier.value : 50;
+      const count  = document.getElementById('cart-count');
+      count.textContent = parseInt(count.textContent || 0) + 1;
+      const toast  = document.getElementById('cart-toast');
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.display = 'none', 4000);
+    }
+  </script>
+</body>
+</html>

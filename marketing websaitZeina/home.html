@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E Marketing Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<div class="top-bar">
+  Book your consultation Now
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<div class="navbar">
+
+  <div class="logo-box">
+    <img src="images/logo.png" alt="logo">
+    <span>E Marketing Lab co.</span>
+  </div>
+
+  <div class="menu">
+
+    <a href="index.html">Home</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">Services ▾</button>
+<div class="dropdown-content">
+  <a href="#media-buying">Media Buying & Performance Advertising</a>
+  <a href="#digital-strategy">Digital Marketing & Strategy</a>
+  <a href="#web-solutions">Web & Digital Solutions</a>
+  <a href="#crm-growth">CRM & Growth Infrastructure</a>
+  <a href="#training">Training & Capacity Building</a>
+  <a href="#seo">SEO & Organic Growth</a>
+  <a href="#content">Content Marketing & Creation</a>
+  <a href="#creative">Creative Design & Animation</a>
+  <a href="#gamified">Gamified Marketing Campaigns</a>
+  <a href="#future-proof">Future-Proof Strategy</a>
+</div>
+    </div>
+
+
+    
+<a href="#success-stories">Success Stories</a>
+    <a href="#">Contact</a>
+    <a href="#">About</a>
+    <a href="signin.html">Sign In</a>
+  <a href="#pricing">Best Offers</a>
+
+  </div>
+
+  <div class="right">
+
+    <a href="#"><img src="images/Shopping Cart.png"></a>
+    <a href="#"><img src="images/heart.png"></a>
+
+    <!-- CHAT ICON -->
+<button class="chat-btn" onclick="toggleChat()">
+  <img src="images/Message Bot.png">
+</button>
+
+    <a href="#" class="lang">EN</a>
+
+  </div>
+
+</div>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+
+
+  </div>
+
+</div>
+
+
+<!-- ================= PRICING ================= -->
+<section class="pricing" id="pricing">
+
+  <h1>Pricing plans</h1>
+  <p>Choose the right plan for your needs</p>
+
+  <div class="pricing-cards">
+
+    <!-- Card 1 -->
+  <div class="card">
+
+  <div class="card-top">
+    <span class="tag">Starter</span>
+    <h2>$50</h2>
+  </div>
+
+  <p>Perfect for small projects and short-term needs</p>
+
+  <button>Get Started</button>
+
+  <ul>
+    <li>✔</li>
+    <li>✔</li>
+    <li>✔</li>
+  </ul>
+
+</div>
+
+    <!-- Card 2 -->
+    <div class="card">
+
+  <div class="card-top">
+    <span class="tag"> Standard</span>
+    <h2>$100</h2>
+  </div>
+
+  <p>Perfect for small projects and short-term needs</p>
+
+  <button>Get Started</button>
+
+  <ul>
+    <li>✔</li>
+    <li>✔</li>
+    <li>✔</li>
+  </ul>
+
+</div>
+    <!-- Card 3 -->
+  <div class="card">
+
+  <div class="card-top">
+    <span class="tag">Advanced</span>
+    <h2>$500</h2>
+  </div>
+
+  <p>Perfect for small projects and short-term needs</p>
+
+  <button>Get Started</button>
+
+  <ul>
+    <li>✔</li>
+    <li>✔</li>
+    <li>✔</li>
+  </ul>
+
+</div>
+
+</section>
+
+<!-- ================= WISHLIST ================= -->
+
+<section class="wishlist">
+
+  <div class="wishlist-header">
+    
+    <div class="wishlist-title">
+      <img src="images/heart.png" class="heart-icon">
+      Wishlist
+    </div>
+
+    <button class="create-btn" onclick="toggleForm()">
+      + Create a List
+    </button>
+
+  </div>
+
+  <div class="wishlist-box" id="formBox" style="display:none;">
+
+    <h3>Create a new list</h3>
+
+    <input type="text" placeholder="List name">
+    <textarea placeholder="Description"></textarea>
+
+    <input type="text" id="listItem" placeholder="Add item to list">
+
+    <button class="btn-create">Create</button>
+
+  </div>
+
+</section>
+
+
+<section id="success-stories" class="success">
+
+  <div class="success-header">
+    <button class="success-btn">Our Success Stories</button>
+  </div>
+
+  <div class="slider">
+
+
+  <button class="arrow left" onclick="prevSlide()">❮</button>
+
+  <div class="success-container" id="slides">
+    <div class="story-card"><img src="images/story21.png"></div>
+    <div class="story-card"><img src="images/story21.png""></div>
+    <div class="story-card"><img src="images/story21.png""></div>
+    <div class="story-card"><img src="images/story21.png""></div>
+  </div>
+
+  <button class="arrow right" onclick="nextSlide()">❯</button>
+
+</div>
+   
+
+</section>
+
+
+
+
+
+
+
+<!-- ================= CHAT BOT ================= -->
+
+<div class="chat-box" id="chatBox">
+
+<div class="chat-header">
+    <div style="display:flex; align-items:center; gap:8px;">
+        <img src="images/Message Bot.png" style="width:28px; height:28px; border-radius:50%;">
+        <span>Chat Bot</span>
+    </div>
+    <span onclick="toggleChat()">✖</span>
+</div>
+
+  <div class="chat-body">
+    <p>Hello 👋</p>
+    <p>How can I help you today?</p>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" placeholder="Write a message...">
+  </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+
+<script>
+function toggleForm() {
+  const form = document.getElementById('formBox');
+
+  if (form.style.display === "none") {
+    form.style.display = "flex";
+  } else {
+    form.style.display = "none";
+  }
+}
+</script>
+
+<script>
+ 
+function createList() {
+  const name = document.getElementById('listName').value.trim();
+  const desc = document.getElementById('listDesc').value.trim();
+  const item = document.getElementById('listItem').value.trim();
+
+  if (!name) {
+    alert('Enter list name');
+    return;
+  }
+
+  const card = document.createElement('div');
+  card.className = 'list-card';
+
+  card.innerHTML = `
+    <h4>${name}</h4>
+    <p>${desc || 'No description'}</p>
+    <p><strong>Item:</strong> ${item || 'No item'}</p>
+  `;
+
+  document.getElementById('listsGrid').appendChild(card);
+
+  document.getElementById('listName').value = '';
+  document.getElementById('listDesc').value = '';
+  document.getElementById('listItem').value = '';
+}
+</script>
+<section class="services">
+
+  <!-- 1 -->
+
+  <div class="service-card" id="media-buying">
+    <img src="images/Microphone.png" class="icon">
+    <h3>Media Buying & Performance Advertising:</h3>
+    <p>
+      We help businesses grow through targeted digital ads using AI to reach the right audience, optimize performance, and maximize ROI.
+    </p>
+  </div>
+
+  <!-- 2 -->
+    <div class="service-card" id="digital-strategy">
+    <img src="images/Film Reel.png" class="icon">
+    <h3>Digital Marketing & Strategy:</h3>
+    <p>
+      We create eye-catching designs, animations, and AI-powered visuals that capture attention and drive engagement—helping your brand stand out and connect with your audience.
+    </p>
+  </div>
+
+  <!-- 3 -->
+<div class="service-card" id="web-solutions">
+    <img src="images/Code.png" class="icon">
+    <h3>Web & Digital Solutions:</h3>
+    <p>
+      We build modern websites, web and mobile apps, and e-commerce platforms. Our solutions combine creative design and advanced technology to deliver a seamless digital experience and drive business growth.
+    </p>
+  </div>
+
+  <!-- 4 -->
+<div class="service-card" id="crm-growth">
+    <img src="images/Customer Support.png" class="icon">
+    <h3>CRM, Communication & Growth Infrastructure:</h3>
+    <p>
+      We help businesses streamline customer communication and management while building systems for scalable growth. From CRM setup to automated messaging and analytics, our solutions improve customer experience, retention, and business performance.
+    </p>
+  </div>
+
+  <!-- 5 -->
+
+  <div class="service-card" id="training">
+    <img src="images/Graduation Cap.png" class="icon">
+    <h3>Training & Capacity Building:</h3>
+    <p>
+      We provide hands-on training and workshops to help companies master digital marketing. Our programs empower teams to use tools, run campaigns, and analyze results effectively, building internal capacity for sustainable growth.
+    </p>
+  </div>
+
+  <!-- 6 -->
+
+  <div class="service-card" id="seo">
+    <img src="images/Increase.png" class="icon">
+    <h3>SEO & Organic Growth:</h3>
+    <p>
+      We improve your website’s visibility on search engines through keyword optimization, content enhancement, and link building—driving sustainable, long-term traffic without paid ads.
+    </p>
+  </div>
+
+  <!-- 7 -->
+  <div class="service-card" id="content">
+    <img src="images/Web Design.png" class="icon">
+    <h3>Content Marketing & Creation:</h3>
+    <p>
+      We craft engaging content, from web copy and blogs to social media posts and short-form videos. Through powerful storytelling, we help build a strong and memorable brand.
+    </p>
+  </div>
+
+  <!-- 8 -->
+ 
+  <div class="service-card" id="creative">
+    <img src="images/Idea.png" class="icon">
+    <h3>Creative Design & Animation Solutions:</h3>
+    <p>
+      We create engaging designs, animations, and AI-generated visuals that capture attention and communicate your message clearly.
+    </p>
+  </div>
+
+  <!-- 9 -->
+ 
+  <div class="service-card" id="gamified">
+    <img src="images/PS Controller.png" class="icon">
+    <h3>Gamified Marketing Campaigns:</h3>
+    <p>
+      We create interactive, game-based campaigns like quizzes, challenges, and rewards to boost engagement and capture attention.
+    </p>
+  </div>
+
+  <!-- 10 -->
+    <div class="service-card" id="future-proof">
+    <img src="images/Future.png" class="icon">
+    <h3>Future-Proof Strategy Services:</h3>
+    <p>
+      We build forward-thinking marketing strategies powered by data, AI, and market insights to keep your business ahead of competition.
+    </p>
+  </div>
+
+<script>
+  let scrollAmount = 0;
+
+
+function nextSlide() {
+  const slides = document.getElementById("slides");
+  scrollX += 270;
+  slides.style.transform = `translateX(-${scrollX}px)`;
+}
+
+function prevSlide() {
+  const slides = document.getElementById("slides");
+  scrollX -= 270;
+
+  if (scrollX < 0) scrollX = 0;
+
+  slides.style.transform = `translateX(-${scrollX}px)`;
+}
+</script>
+
+ <script>
+let scrollX = 0;
+
+function nextSlide() {
+  const slides = document.getElementById("slides");
+  scrollX += 270;
+  slides.style.transform = `translateX(-${scrollX}px)`;
+}
+
+function prevSlide() {
+  const slides = document.getElementById("slides");
+  scrollX -= 270;
+
+  if (scrollX < 0) scrollX = 0;
+
+  slides.style.transform = `translateX(-${scrollX}px)`;
+}
+</script>
+<script>
+function toggleChat() {
+  const chat = document.getElementById("chatBox");
+
+  if (chat.style.display === "block") {
+    chat.style.display = "none";
+  } else {
+    chat.style.display = "block";
+  }
+}
+</script>
+</section>
+</body>
+</html>

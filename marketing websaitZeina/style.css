@@ -1,0 +1,652 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f0ff;
+}
+
+section {
+  margin: 0;
+  padding: 80px 40px;
+  background: #f5f0ff;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  background: #eee;
+  position: relative;
+  z-index: 1001;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #c084fc;
+  position: relative;        /* ← مهم */
+  z-index: 1000;             /* ← مهم: فوق الـ hero */
+}
+
+/* LOGO */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  width: 40px;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.menu a,
+.dropbtn {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu a:hover,
+.dropbtn:hover {
+  color: white;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 220px;
+  z-index: 9999;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background: #eee;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content {
+  z-index: 9999;
+}
+
+/* =========================
+   RIGHT ICONS
+========================= */
+.right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.right a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right img {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.right img:hover {
+  transform: scale(1.2);
+}
+
+/* LANGUAGE */
+.lang {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;               /* ← أقل من الـ navbar */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  color: #8f6395;
+}
+
+.hero-content p {
+  margin: 15px 0;
+  color: #ddd;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+/* =========================
+   AUTH - Figma Style
+========================= */
+.auth-container {
+  height: 100vh;
+  width: 100%;
+  background: url("images/Rectangle14.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  width: 320px;
+  text-align: center;
+  color: white;
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  background: #ff7a00;
+  color: white;
+  border-radius: 3px;
+}
+
+.auth-box input::placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.row a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.row a:hover {
+  color: white;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #9333ea;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.btn.outline {
+  background: #7e22ce;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.auth-box p {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.auth-box a {
+  color: #d8b4fe;
+}
+
+/* =========================
+   CHAT BOT
+========================= */
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #a855f7;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 260px;
+  background: #f5f0ff; /* 👈 بدل الأبيض */
+  border-radius: 10px;
+  display: none;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+.chat-header {
+  background: #a855f7;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.chat-body {
+  padding: 10px;
+  height: 180px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.chat-footer input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #ccc;
+  outline: none;
+}
+
+.chat-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   PRICING SECTION
+========================= */
+.pricing {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #1a002e, #825eb8);
+  color: rgb(234, 234, 234);
+}
+
+.pricing h1 {
+  font-size: 40px;
+}
+
+.pricing p {
+  margin: 10px 0 40px;
+  color: #ddd;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #e5e5e5;
+  width: 260px;
+  padding: 20px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.card-top {
+  background: #8f6597;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-top.active {
+  background: #6e488f;
+}
+
+.card-top span {
+  font-size: 12px;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.card-top h2 {
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.card p {
+  font-size: 12px;
+  margin: 15px 0;
+  color: #333;
+}
+
+.card button {
+  background: #140028;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 30px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  color: #220220;
+}
+
+.card ul li {
+  margin: 8px 0;
+}
+
+/* =========================
+   PLAN TAG
+========================= */
+.tag {
+  background: rgb(129, 32, 32);
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   WISHLIST
+========================= */
+.wishlist {
+  padding: 80px 40px;
+  background: #f5f0ff;
+}
+
+.wishlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.wishlist-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d0060;
+}
+
+.heart-icon {
+  width: 24px;
+}
+
+.create-btn {
+  background: #3d0070;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.wishlist-box {
+  max-width: 400px;
+  margin: auto;
+  background: #f0e6ff;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wishlist-box h3 {
+  margin-bottom: 5px;
+  color: #2d0060;
+}
+
+.wishlist-box input,
+.wishlist-box textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#listItem {
+  background: #e5e5e5;
+}
+
+.btn-create {
+  background: #593f86;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services {
+  padding: 80px 40px;
+  background: #f5f0ff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.service-card h3 {
+  white-space: nowrap;
+}
+.service-card {
+  background: #e9c6ff;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.service-card h3 {
+  margin: 0 0 5px 0;
+  color: #2d0060;
+}
+
+.service-card p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .menu {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .auth-box {
+    width: 90%;
+  }
+  html {
+  scroll-behavior: smooth;
+}
+.service-card {
+  scroll-margin-top: 120px;
+}
+section {
+  scroll-margin-top: 100px;
+}
+}
+
+/* =========================
+   SUCCESS STORIES SLIDER
+========================= */
+/* =========================
+   SUCCESS STORIES
+========================= */
+
+.success {
+  padding: 80px 40px;
+  background: linear-gradient(to bottom, #f5f0ff, #e9dcff);
+  text-align: center;
+}
+.success-btn {
+  background: #3d0070;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+}
+.success-header {
+  display: flex;
+  justify-content: flex-start; /* يخليه ع اليسار */
+  margin-bottom: 30px;
+}
+
+
+.story-card {
+  width: 250px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+.story-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.success-container {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  font-size: 22px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — E Marketing Lab co.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    Limited time — transform your brand today.<a href="best-offers.html">Book your consultation Now →</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="images/logo.png" alt="E Marketing Lab" style="width:36px;height:36px;object-fit:contain;" />
+        <span>E Marketing Lab co.</span>
+      </a>
+      <nav class="navbar__links">
+        <a href="index.html">Home</a>
+        <a href="service-detail.html">Services</a>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="about.html">About</a>
+        <a href="best-offers.html">Best Offers</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="nav-lang-btn">EN</button>
+        <a href="signup.html" class="nav-signin-btn">Create Account</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- AUTH -->
+  <main class="auth-page">
+
+    <!-- Left brand panel -->
+    <div class="auth-brand">
+      <div class="auth-brand__logo">
+        <svg width="44" height="44" viewBox="0 0 36 36" fill="none">
+          <path d="M18 10 C10 10, 6 15, 6 18 C6 21, 10 26, 18 26 C26 26, 30 21, 30 18" stroke="url(#abg1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M18 26 C26 26, 30 21, 30 18 C30 15, 26 10, 18 10" stroke="url(#abg2)" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <defs>
+            <linearGradient id="abg1" x1="6" y1="10" x2="30" y2="26" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C026D3"/><stop offset="100%" stop-color="#F97316"/></linearGradient>
+            <linearGradient id="abg2" x1="30" y1="26" x2="6" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#C026D3"/></linearGradient>
+          </defs>
+        </svg>
+        <span>E Marketing Lab co.</span>
+      </div>
+      <p class="auth-brand__tagline">Welcome<br/><em>back.</em></p>
+      <p class="auth-brand__sub">Sign in to manage your services, track campaigns, and grow your business with data-driven marketing.</p>
+      <div class="auth-brand__dots">
+        <div class="auth-brand__dot active"></div>
+        <div class="auth-brand__dot"></div>
+        <div class="auth-brand__dot"></div>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="auth-form-panel">
+      <div class="auth-form">
+        <h1>Sign In</h1>
+        <p class="auth-subtitle">Don't have an account? <a href="signup.html">Sign up free</a></p>
+
+        <!-- Social buttons -->
+        <div class="auth-social-btns">
+          <button class="auth-social-btn" onclick="handleSocialAuth('Google')">
+            <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.6 0 6.6 5.4 2.5 13.3l7.9 6.1C12.4 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.5 2.9-2.2 5.3-4.6 6.9l7.2 5.6C43.5 37 46.5 31.2 46.5 24.5z"/><path fill="#FBBC05" d="M10.4 28.6C9.9 27.1 9.7 25.6 9.7 24s.3-3.1.7-4.6L2.5 13.3C.9 16.5 0 20.1 0 24s.9 7.5 2.5 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.2-5.6c-2 1.4-4.6 2.2-8 2.2-6.2 0-11.5-3.7-13.6-8.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>
+            Continue with Google
+          </button>
+          <button class="auth-social-btn" onclick="handleSocialAuth('Apple')">
+            <svg width="18" height="18" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-42.4-150.2-111.4C172.5 773.2 128 656.6 128 546.4c0-200.1 127.1-305.7 254.2-305.7 65.9 0 120.8 43.2 162.4 43.2 39.8 0 101.8-46 176.4-46 28.5 0 130.9 2.6 198.3 99z" fill="currentColor"/><path d="M554.1 121.8C588.4 81.7 612 26.2 612 0c0-3.2-.6-6.4-.9-9.6-39.5 1.3-86.8 26.2-117.8 58.3-30.2 31-55.7 86.5-55.7 143.2 0 3.8.6 7.7.9 8.9 3.2.6 8.3 1.3 13.5 1.3 35.7 0 80.2-23.3 102.1-80.3z" fill="currentColor"/></svg>
+            Continue with Apple
+          </button>
+        </div>
+
+        <div class="auth-divider">or sign in with email</div>
+
+        <form novalidate onsubmit="handleSignIn(event)">
+          <div class="auth-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="auth-field">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password" />
+              <button type="button" class="password-toggle" onclick="togglePassword('password', this)" aria-label="Show password">👁</button>
+            </div>
+          </div>
+          <div class="auth-extras">
+            <label><input type="checkbox" id="remember" /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" style="font-size:16px;padding:15px;">Sign In</button>
+        </form>
+
+        <p class="auth-footer-text">New to E Marketing Lab? <a href="signup.html">Create a free account →</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="main.js"></script>
+  <script>
+    function handleSignIn(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const email = document.getElementById('email').value;
+      if (!email || !email.includes('@')) {
+        document.getElementById('email').style.borderColor = '#e11d48';
+        return;
+      }
+      btn.textContent = 'Signing in…';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+    }
+    function handleSocialAuth(provider) {
+      const btn = event.currentTarget;
+      btn.textContent = `Connecting to ${provider}…`;
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 1400);
+    }
+    function togglePassword(id, btn) {
+      const input = document.getElementById(id);
+      if (input.type === 'password') { input.type = 'text'; btn.textContent = '🙈'; }
+      else { input.type = 'password'; btn.textContent = '👁'; }
+    }
+  </script>
+</body>
+</html>
