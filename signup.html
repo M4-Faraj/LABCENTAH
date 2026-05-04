@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="announcement-bar">
@@ -165,5 +166,58 @@
       else { input.type = 'password'; btn.textContent = '👁'; }
     }
   </script>
+  <!-- ACCESSIBILITY PANEL -->
+  <div aria-live="polite" aria-atomic="true" class="sr-announce" id="a11y-announce"></div>
+  <button class="a11y-trigger" id="a11y-trigger" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11y-panel" aria-label="Open accessibility options">♿</button>
+  <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility options" aria-hidden="true">
+    <div class="a11y-panel__header">
+      <div class="a11y-panel__title">♿ Accessibility</div>
+      <button class="a11y-close" onclick="toggleA11yPanel()" aria-label="Close accessibility panel">✕</button>
+    </div>
+    <div class="a11y-option">
+      <div class="a11y-option__label">
+        <span class="a11y-option__icon">🌗</span>
+        <div>High Contrast<div class="a11y-option__sublabel">WCAG AA colours</div></div>
+      </div>
+      <label class="a11y-switch" aria-label="Toggle high contrast">
+        <input type="checkbox" id="a11y-contrast" onchange="applyContrast(this.checked)" />
+        <span class="a11y-switch__track"></span>
+      </label>
+    </div>
+    <div class="a11y-option">
+      <div class="a11y-option__label">
+        <span class="a11y-option__icon">📖</span>
+        <div>Dyslexia Font<div class="a11y-option__sublabel">OpenDyslexic typeface</div></div>
+      </div>
+      <label class="a11y-switch" aria-label="Toggle dyslexia-friendly font">
+        <input type="checkbox" id="a11y-dyslexia" onchange="applyDyslexia(this.checked)" />
+        <span class="a11y-switch__track"></span>
+      </label>
+    </div>
+    <div class="a11y-option">
+      <div class="a11y-option__label">
+        <span class="a11y-option__icon">🎞️</span>
+        <div>Reduce Motion<div class="a11y-option__sublabel">Stops animations</div></div>
+      </div>
+      <label class="a11y-switch" aria-label="Toggle reduce motion">
+        <input type="checkbox" id="a11y-motion" onchange="applyReduceMotion(this.checked)" />
+        <span class="a11y-switch__track"></span>
+      </label>
+    </div>
+    <hr class="a11y-divider" />
+    <div class="a11y-option">
+      <div class="a11y-option__label">
+        <span class="a11y-option__icon">🔤</span>
+        <div>Text Size<div class="a11y-option__sublabel" id="a11y-size-label">100%</div></div>
+      </div>
+      <div class="a11y-stepper">
+        <button class="a11y-step-btn" onclick="changeSize(-1)" aria-label="Decrease text size">−</button>
+        <span class="a11y-size-val" id="a11y-size-val" aria-live="polite">100%</span>
+        <button class="a11y-step-btn" onclick="changeSize(1)" aria-label="Increase text size">+</button>
+      </div>
+    </div>
+    <hr class="a11y-divider" />
+    <button class="a11y-reset" onclick="resetA11y()" aria-label="Reset all accessibility settings">↺ Reset all settings</button>
+  </div>
 </body>
 </html>
