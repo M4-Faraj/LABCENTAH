@@ -21,7 +21,16 @@
   <header class="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <img src="images/logo.png" alt="E Marketing Lab" style="width:36px;height:36px;object-fit:contain;" />
+        <svg class="logo-svg" width="44" height="26" viewBox="0 0 88 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44 26C44 26 30 6 16 6C7.163 6 0 13.163 0 22C0 32.493 8.507 41 19 41C33 41 44 26 44 26C44 26 55 12 69 12C78.941 12 88 21.059 88 31C88 39.837 80.837 47 72 47C58 47 44 26 44 26Z" stroke="url(#nav-lg-1)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="nav-lg-1" x1="0" y1="6" x2="88" y2="47" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7C3AED"/>
+              <stop offset="48%" stop-color="#C026D3"/>
+              <stop offset="100%" stop-color="#FF5E1A"/>
+            </linearGradient>
+          </defs>
+        </svg>
         <span>E Marketing Lab co.</span>
       </a>
 
@@ -224,35 +233,60 @@
       <div class="ss-slider">
         <button class="ss-arrow ss-arrow--left" onclick="ssPrev()" aria-label="Previous">❮</button>
         <div class="ss-track" id="ss-track">
-          <div class="ss-card">
-            <div class="ss-card__result">+312% Revenue</div>
-            <div class="ss-card__company">E-Commerce Retailer</div>
-            <p class="ss-card__desc">Restructured Meta & Google campaigns. Revenue tripled in 90 days.</p>
-            <span class="story-card__tag" style="margin-top:12px;">Media Buying</span>
+          <div class="ss-video-card">
+            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
+              <div class="ss-play-btn">▶</div>
+              <span class="ss-video-label">Client Story</span>
+            </div>
+            <div class="ss-video-info">
+              <div class="ss-card__result">+312% Revenue</div>
+              <div class="ss-card__company">E-Commerce Retailer</div>
+              <p class="ss-card__desc">Restructured Meta &amp; Google campaigns. Revenue tripled in 90 days.</p>
+            </div>
           </div>
-          <div class="ss-card">
-            <div class="ss-card__result">4× Bookings</div>
-            <div class="ss-card__company">Healthcare Clinic</div>
-            <p class="ss-card__desc">SEO + local Google Ads — appointment bookings quadrupled in 6 months.</p>
-            <span class="story-card__tag" style="margin-top:12px;">SEO &amp; Ads</span>
+          <div class="ss-video-card">
+            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
+              <div class="ss-play-btn">▶</div>
+              <span class="ss-video-label">Client Story</span>
+            </div>
+            <div class="ss-video-info">
+              <div class="ss-card__result">4× Bookings</div>
+              <div class="ss-card__company">Healthcare Clinic</div>
+              <p class="ss-card__desc">SEO + local Google Ads — appointment bookings quadrupled in 6 months.</p>
+            </div>
           </div>
-          <div class="ss-card">
-            <div class="ss-card__result">68 Leads / 30 Days</div>
-            <div class="ss-card__company">Real Estate Developer</div>
-            <p class="ss-card__desc">Full-funnel campaign with video ads and WhatsApp automation.</p>
-            <span class="story-card__tag" style="margin-top:12px;">Performance</span>
+          <div class="ss-video-card">
+            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
+              <div class="ss-play-btn">▶</div>
+              <span class="ss-video-label">Client Story</span>
+            </div>
+            <div class="ss-video-info">
+              <div class="ss-card__result">68 Leads / 30 Days</div>
+              <div class="ss-card__company">Real Estate Developer</div>
+              <p class="ss-card__desc">Full-funnel campaign with video ads and WhatsApp automation.</p>
+            </div>
           </div>
-          <div class="ss-card">
-            <div class="ss-card__result">↓54% Cost/Enroll</div>
-            <div class="ss-card__company">EdTech Startup</div>
-            <p class="ss-card__desc">AI-optimized audiences cut enrollment cost in half while scaling volume.</p>
-            <span class="story-card__tag" style="margin-top:12px;">AI Optimization</span>
+          <div class="ss-video-card">
+            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
+              <div class="ss-play-btn">▶</div>
+              <span class="ss-video-label">Client Story</span>
+            </div>
+            <div class="ss-video-info">
+              <div class="ss-card__result">↓54% Cost/Enroll</div>
+              <div class="ss-card__company">EdTech Startup</div>
+              <p class="ss-card__desc">AI-optimized audiences cut enrollment cost in half while scaling volume.</p>
+            </div>
           </div>
-          <div class="ss-card">
-            <div class="ss-card__result">+89% Engagement</div>
-            <div class="ss-card__company">Restaurant Chain</div>
-            <p class="ss-card__desc">Weekly short-form video + gamified giveaways nearly doubled engagement.</p>
-            <span class="story-card__tag" style="margin-top:12px;">Content</span>
+          <div class="ss-video-card">
+            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
+              <div class="ss-play-btn">▶</div>
+              <span class="ss-video-label">Client Story</span>
+            </div>
+            <div class="ss-video-info">
+              <div class="ss-card__result">+89% Engagement</div>
+              <div class="ss-card__company">Restaurant Chain</div>
+              <p class="ss-card__desc">Weekly short-form video + gamified giveaways nearly doubled engagement.</p>
+            </div>
           </div>
         </div>
         <button class="ss-arrow ss-arrow--right" onclick="ssNext()" aria-label="Next">❯</button>
@@ -261,39 +295,128 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════
-       WISHLIST
+       WISHLIST / LIKED SERVICES
   ═══════════════════════════════════════════════════════ -->
-  <section class="wl-section">
+  <section class="wl-section" id="wishlist">
     <div class="wl-section__inner">
       <div class="wl-header">
         <div class="wl-title">
-          <img src="images/Heart.png" alt="" style="width:28px;" />
-          Wishlist
+          <img src="images/IMG_6846.JPG" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:10px;flex-shrink:0;" />
+          Saved Services
         </div>
-        <button class="btn btn--primary" onclick="toggleWishlistForm()">+ Create a List</button>
+        <span id="wl-liked-summary" class="wl-liked-count" style="font-size:14px;color:#7c5ea0;"></span>
       </div>
-      <div class="wl-form" id="wl-form" style="display:none;">
-        <h3 class="wl-form__heading">Create a new list</h3>
-        <input type="text" id="wl-name" placeholder="List name" class="wl-input" />
-        <textarea id="wl-desc" placeholder="Description (optional)" class="wl-input" rows="3"></textarea>
-        <input type="text" id="wl-item" placeholder="Add a service or item" class="wl-input" />
-        <button class="btn btn--orange" onclick="createWishlist()" style="width:100%;margin-top:4px;">Create List</button>
+      <p style="font-size:15px;color:#7c5ea0;margin-bottom:28px;">Heart any service to save it to your list.</p>
+      <div class="wl-services-grid">
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">📡</div>
+          <div class="wl-service-card__name">Media Buying &amp; Performance Ads</div>
+          <div class="wl-service-card__desc">Precision-targeted Meta &amp; Google campaigns that drive real ROI.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">📊</div>
+          <div class="wl-service-card__name">Digital Marketing &amp; Strategy</div>
+          <div class="wl-service-card__desc">Full-funnel strategy built around your business goals.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">📈</div>
+          <div class="wl-service-card__name">SEO &amp; Organic Growth</div>
+          <div class="wl-service-card__desc">Rank higher, attract more — organic traffic that compounds.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">✍️</div>
+          <div class="wl-service-card__name">Content Marketing &amp; Creation</div>
+          <div class="wl-service-card__desc">Stories and content that build trust and drive conversions.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">🎨</div>
+          <div class="wl-service-card__name">Creative Design &amp; Animation</div>
+          <div class="wl-service-card__desc">Visuals that stop the scroll and communicate your brand.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">💻</div>
+          <div class="wl-service-card__name">Web &amp; Digital Solutions</div>
+          <div class="wl-service-card__desc">Fast, modern websites and digital tools built to convert.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">🎓</div>
+          <div class="wl-service-card__name">Training &amp; Capacity Building</div>
+          <div class="wl-service-card__desc">Upskill your team with hands-on marketing training programs.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">🔗</div>
+          <div class="wl-service-card__name">CRM &amp; Growth Infrastructure</div>
+          <div class="wl-service-card__desc">Systems that automate follow-ups and nurture leads to close.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">🎮</div>
+          <div class="wl-service-card__name">Gamified Marketing Campaigns</div>
+          <div class="wl-service-card__desc">Turn engagement into loyal customers with gamified mechanics.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
+        <div class="wl-service-card">
+          <div class="wl-service-card__icon">🔮</div>
+          <div class="wl-service-card__name">Future-Proof Strategy</div>
+          <div class="wl-service-card__desc">AI-ready marketing frameworks designed to outlast algorithm changes.</div>
+          <button class="wl-like-btn" onclick="toggleLike(this)" aria-label="Save service">♡</button>
+        </div>
       </div>
-      <div id="wl-lists" class="wl-lists"></div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
-       NEWSLETTER BANNER
+       ABOUT (inline)
   ═══════════════════════════════════════════════════════ -->
-  <section class="newsletter-banner">
-    <div class="newsletter-banner__inner">
-      <h2 class="newsletter-banner__heading">Join Us for More Updates</h2>
-      <div class="newsletter-banner__form">
-        <div class="newsletter-input-wrap">
-          <input type="email" placeholder="Enter your email" aria-label="Email address" />
+  <section class="about-inline" id="about">
+    <div class="about-inline__inner">
+      <p class="section-kicker">About Us</p>
+      <h2 class="section-heading">We are E-Marketing Lab co.</h2>
+      <div class="about-inline__grid">
+        <div class="about-inline__text">
+          <h3>Built for brands that want to grow — the right way.</h3>
+          <p>E-Marketing Lab is a data-first digital marketing agency based in Palestine. We combine strategy, creativity, and technology to help businesses reach real audiences, generate measurable results, and build lasting digital presence.</p>
+          <p>From performance advertising and SEO to creative content and brand identity — our team brings deep expertise across every growth channel.</p>
+          <a href="about.html" class="btn btn--primary" style="margin-top:8px;">Learn More About Us →</a>
         </div>
-        <button class="btn btn--orange" onclick="handleNewsletter(this)">Join Now</button>
+        <div class="about-inline__stats">
+          <div class="about-stat">
+            <div class="about-stat__num">200+</div>
+            <div class="about-stat__label">Clients Served</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">3.8×</div>
+            <div class="about-stat__label">Average ROI</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">94%</div>
+            <div class="about-stat__label">Client Retention</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">10+</div>
+            <div class="about-stat__label">Services Offered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       JOIN US CTA
+  ═══════════════════════════════════════════════════════ -->
+  <section class="join-cta-bar">
+    <div class="join-cta-bar__inner">
+      <h2>Ready to Start a New Collaboration?</h2>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn--white">Join Us →</a>
+        <a href="best-offers.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);">View Offers</a>
       </div>
     </div>
   </section>
@@ -377,12 +500,13 @@
       <!-- Right: contact info -->
       <aside class="contact-info">
         <div class="contact-info__logo">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <path d="M18 10 C10 10, 6 15, 6 18 C6 21, 10 26, 18 26 C26 26, 30 21, 30 18 C30 15, 26 10, 18 10" stroke="url(#cg1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <svg width="44" height="26" viewBox="0 0 88 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M44 26C44 26 30 6 16 6C7.163 6 0 13.163 0 22C0 32.493 8.507 41 19 41C33 41 44 26 44 26C44 26 55 12 69 12C78.941 12 88 21.059 88 31C88 39.837 80.837 47 72 47C58 47 44 26 44 26Z" stroke="url(#contact-lg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             <defs>
-              <linearGradient id="cg1" x1="6" y1="10" x2="30" y2="26" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#C026D3"/>
-                <stop offset="100%" stop-color="#F97316"/>
+              <linearGradient id="contact-lg" x1="0" y1="6" x2="88" y2="47" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7C3AED"/>
+                <stop offset="48%" stop-color="#C026D3"/>
+                <stop offset="100%" stop-color="#FF5E1A"/>
               </linearGradient>
             </defs>
           </svg>
@@ -422,16 +546,29 @@
         <div class="contact-info__social">
           <h4>Follow Us</h4>
           <div class="social-icons">
-            <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-icon" aria-label="TikTok">♪</a>
-            <a href="#" class="social-icon" aria-label="Instagram">◎</a>
-            <a href="#" class="social-icon" aria-label="Facebook">f</a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
           </div>
         </div>
       </aside>
 
     </div>
   </footer>
+
+  <!-- ACCESSIBILITY TOOLBAR -->
+  <div class="a11y-toolbar" role="toolbar" aria-label="Accessibility tools">
+    <button class="a11y-fab" onclick="toggleContrast()" title="Toggle High Contrast" aria-label="High Contrast">⬛</button>
+    <button class="a11y-fab" onclick="changeFontSize(1)" title="Increase Text Size" aria-label="Increase text size">A+</button>
+    <button class="a11y-fab" onclick="changeFontSize(-1)" title="Decrease Text Size" aria-label="Decrease text size">A-</button>
+    <button class="a11y-fab" onclick="resetA11y()" title="Reset Accessibility" aria-label="Reset">↺</button>
+  </div>
 
   <!-- CHATBOT -->
   <button class="chatbot-fab" onclick="toggleChat()" aria-label="Chat">
@@ -457,6 +594,13 @@
 
   <script src="main.js"></script>
   <script>
+    /* ── Cart sync ────────────── */
+    (function() {
+      const n = sessionStorage.getItem('cartCount') || 0;
+      const el = document.querySelector('.cart-badge');
+      if (el) el.textContent = n;
+    })();
+
     /* ── Success stories slider ─── */
     let ssPos = 0;
     function ssNext() {
@@ -475,24 +619,36 @@
       track.style.transform = `translateX(-${ssPos}px)`;
     }
 
-    /* ── Wishlist ─────────────── */
-    function toggleWishlistForm() {
-      const f = document.getElementById('wl-form');
-      f.style.display = f.style.display === 'none' ? 'flex' : 'none';
+    /* ── Wishlist / Like buttons ─ */
+    function toggleLike(btn) {
+      btn.classList.toggle('liked');
+      btn.textContent = btn.classList.contains('liked') ? '♥' : '♡';
+      updateLikedSummary();
     }
-    function createWishlist() {
-      const name = document.getElementById('wl-name').value.trim();
-      if (!name) { document.getElementById('wl-name').focus(); return; }
-      const desc = document.getElementById('wl-desc').value.trim();
-      const item = document.getElementById('wl-item').value.trim();
-      const card = document.createElement('div');
-      card.className = 'wl-card';
-      card.innerHTML = `<div class="wl-card__name">${name}</div>${desc ? `<div class="wl-card__desc">${desc}</div>` : ''}${item ? `<div class="wl-card__item">📌 ${item}</div>` : ''}`;
-      document.getElementById('wl-lists').appendChild(card);
-      document.getElementById('wl-name').value = '';
-      document.getElementById('wl-desc').value = '';
-      document.getElementById('wl-item').value = '';
-      document.getElementById('wl-form').style.display = 'none';
+    function updateLikedSummary() {
+      const count = document.querySelectorAll('.wl-like-btn.liked').length;
+      const el = document.getElementById('wl-liked-summary');
+      if (el) el.textContent = count > 0 ? `${count} service${count > 1 ? 's' : ''} saved` : '';
+    }
+
+    /* ── Story video placeholder ─ */
+    function playStoryVideo(el) {
+      el.innerHTML = '<span style="color:rgba(255,255,255,.7);font-size:13px;z-index:1;position:relative;">Video coming soon — stay tuned!</span>';
+      el.style.cursor = 'default';
+      el.onclick = null;
+    }
+
+    /* ── Accessibility ─────────── */
+    let fontSize = 0;
+    function toggleContrast() { document.body.classList.toggle('high-contrast'); }
+    function changeFontSize(dir) {
+      fontSize = Math.max(-2, Math.min(4, fontSize + dir));
+      document.documentElement.style.fontSize = (16 + fontSize * 1.5) + 'px';
+    }
+    function resetA11y() {
+      document.body.classList.remove('high-contrast', 'large-text');
+      document.documentElement.style.fontSize = '';
+      fontSize = 0;
     }
 
     /* ── Chatbot ──────────────── */
@@ -500,13 +656,30 @@
       const box = document.getElementById('chatbot-box');
       box.classList.toggle('open');
     }
-    const AUTO_REPLIES = [
-      'Great question! Our team will get back to you shortly.',
-      'You can also reach us at EMarketingLab.co@gmail.com.',
-      'Check out our <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> page for current deals!',
-      'Would you like to <a href="index.html#contact" style="color:var(--c-purple);">start a collaboration</a>?',
+    const CHAT_RULES = [
+      { keys: ['price','cost','pricing','how much','budget'], reply: 'Our packages start at $50. Check out our <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> page for detailed pricing!' },
+      { keys: ['service','offer','do you','what'], reply: 'We offer Media Buying, SEO, Content, Web Dev, Design, CRM, and more. See our full <a href="service-detail.html" style="color:var(--c-purple);">Services</a> page.' },
+      { keys: ['contact','email','phone','reach','talk'], reply: 'You can email us at <strong>EMarketingLab.co@gmail.com</strong> or <a href="#contact" style="color:var(--c-purple);">fill the form below</a>.' },
+      { keys: ['seo','organic','rank','google'], reply: 'Our SEO team drives organic growth with technical audits, content strategy, and link building. <a href="service-detail.html?service=seo" style="color:var(--c-purple);">Learn more →</a>' },
+      { keys: ['social','instagram','facebook','ads'], reply: 'We run high-performance Meta and Google campaigns. Want to discuss your goals? <a href="#contact" style="color:var(--c-purple);">Start a collaboration →</a>' },
+      { keys: ['hello','hi','hey','greet'], reply: '👋 Hello! Welcome to E-Marketing Lab. How can we help you grow today?' },
+      { keys: ['success','story','result','case'], reply: 'Check out our <a href="success-stories.html" style="color:var(--c-purple);">Success Stories</a> — real results from real clients!' },
+      { keys: ['about','team','who'], reply: 'We are a data-driven digital agency based in Palestine. <a href="about.html" style="color:var(--c-purple);">Learn about us →</a>' },
     ];
-    let replyIdx = 0;
+    const DEFAULT_REPLIES = [
+      'Great question! Our team will review and get back to you shortly.',
+      'You can also reach us at <strong>EMarketingLab.co@gmail.com</strong>.',
+      'Check our <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> for current deals!',
+      'Ready to grow? <a href="#contact" style="color:var(--c-purple);">Start a collaboration →</a>',
+    ];
+    let defaultIdx = 0;
+    function getBotReply(text) {
+      const lower = text.toLowerCase();
+      for (const rule of CHAT_RULES) {
+        if (rule.keys.some(k => lower.includes(k))) return rule.reply;
+      }
+      return DEFAULT_REPLIES[defaultIdx++ % DEFAULT_REPLIES.length];
+    }
     function sendChat() {
       const input = document.getElementById('chatbot-input');
       const body  = document.getElementById('chatbot-body');
@@ -517,15 +690,14 @@
       userMsg.textContent = text;
       body.appendChild(userMsg);
       input.value = '';
+      body.scrollTop = body.scrollHeight;
       setTimeout(() => {
         const botMsg = document.createElement('div');
         botMsg.className = 'chatbot-msg chatbot-msg--bot';
-        botMsg.innerHTML = AUTO_REPLIES[replyIdx % AUTO_REPLIES.length];
-        replyIdx++;
+        botMsg.innerHTML = getBotReply(text);
         body.appendChild(botMsg);
         body.scrollTop = body.scrollHeight;
       }, 600);
-      body.scrollTop = body.scrollHeight;
     }
   </script>
 </body>
