@@ -35,60 +35,60 @@
       <span>E Marketing Lab co.</span>
     </a>
 
-    <nav class="navbar__links" role="navigation" aria-label="Main navigation">
-      <a href="index.html" class="active">Home</a>
-      <div class="nav-dropdown">
-        <a href="service-detail.html">Services</a>
-        <div class="dropdown-menu">
-          <a href="service-detail.html?service=media-buying"><span class="dd-icon">🎙️</span>Media Buying &amp; Performance Ads</a>
-          <a href="service-detail.html?service=digital-marketing"><span class="dd-icon">📊</span>Digital Marketing &amp; Strategy</a>
-          <a href="service-detail.html?service=seo"><span class="dd-icon">📈</span>SEO &amp; Organic Growth</a>
-          <a href="service-detail.html?service=content"><span class="dd-icon">📰</span>Content Marketing &amp; Creation</a>
-          <a href="service-detail.html?service=design"><span class="dd-icon">💡</span>Creative Design &amp; Animation</a>
-          <a href="service-detail.html?service=web"><span class="dd-icon">&lt;/&gt;</span>Web &amp; Digital Solutions</a>
-          <a href="service-detail.html?service=training"><span class="dd-icon">🎓</span>Training &amp; Capacity Building</a>
-          <a href="service-detail.html?service=crm"><span class="dd-icon">🔗</span>CRM &amp; Growth Infrastructure</a>
-          <a href="service-detail.html?service=gamified"><span class="dd-icon">🎮</span>Gamified Marketing Campaigns</a>
-          <a href="service-detail.html?service=strategy"><span class="dd-icon">⏱️</span>Future-Proof Strategy</a>
+      <nav class="navbar__links" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <div class="nav-dropdown">
+          <a href="service-detail.html">Services</a>
+          <div class="dropdown-menu">
+            <a href="service-detail.html?service=media-buying"><span class="dd-icon">🎙️</span>Media Buying &amp; Performance Ads</a>
+            <a href="service-detail.html?service=digital-marketing"><span class="dd-icon">📊</span>Digital Marketing &amp; Strategy</a>
+            <a href="service-detail.html?service=seo"><span class="dd-icon">📈</span>SEO &amp; Organic Growth</a>
+            <a href="service-detail.html?service=content"><span class="dd-icon">📰</span>Content Marketing &amp; Creation</a>
+            <a href="service-detail.html?service=design"><span class="dd-icon">💡</span>Creative Design &amp; Animation</a>
+            <a href="service-detail.html?service=web"><span class="dd-icon">&lt;/&gt;</span>Web &amp; Digital Solutions</a>
+            <a href="service-detail.html?service=training"><span class="dd-icon">🎓</span>Training &amp; Capacity Building</a>
+            <a href="service-detail.html?service=crm"><span class="dd-icon">🔗</span>CRM &amp; Growth Infrastructure</a>
+            <a href="service-detail.html?service=gamified"><span class="dd-icon">🎮</span>Gamified Marketing Campaigns</a>
+            <a href="service-detail.html?service=strategy"><span class="dd-icon">⏱️</span>Future-Proof Strategy</a>
+          </div>
         </div>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#about">About</a>
+        <a href="best-offers.html">Best Offers</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <div class="search-bar">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="#6B21A8" stroke-width="1.5"/><path d="M10.5 10.5L13.5 13.5" stroke="#6B21A8" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="text" placeholder="Search services…" aria-label="Search" />
+        </div>
+        <a href="checkout.html" class="nav-icon-btn cart-btn" aria-label="Cart" style="position:relative;">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="#" class="nav-icon-btn" aria-label="Wishlist" title="Wishlist">♡</a>
+        <a href="#" class="nav-icon-btn" aria-label="Notifications" title="Notifications">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 16.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+        <button class="nav-lang-btn">EN</button>
+        <a href="signin.html" class="nav-signin-btn">Sign In</a>
+        <button class="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="service-detail.html">Services</a>
       <a href="success-stories.html">Success Stories</a>
-      <a href="index.html#contact">Contact</a>
       <a href="about.html">About</a>
       <a href="best-offers.html">Best Offers</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html">Sign Up</a>
     </nav>
-
-    <div class="navbar__actions">
-      <div class="search-bar">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="#6B21A8" stroke-width="1.5"/><path d="M10.5 10.5L13.5 13.5" stroke="#6B21A8" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <input type="text" placeholder="Search services…" aria-label="Search" />
-      </div>
-      <a href="checkout.html" class="nav-icon-btn cart-btn" aria-label="Cart" style="position:relative;">
-        <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
-        <span class="cart-badge">0</span>
-      </a>
-      <a href="#" class="nav-icon-btn" aria-label="Wishlist" title="Wishlist">♡</a>
-      <a href="#" class="nav-icon-btn" aria-label="Notifications" title="Notifications">
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 16.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.5"/></svg>
-      </a>
-      <button class="nav-lang-btn">EN</button>
-      <a href="signin.html" class="nav-signin-btn">Sign In</a>
-      <button class="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="service-detail.html">Services</a>
-    <a href="success-stories.html">Success Stories</a>
-    <a href="about.html">About</a>
-    <a href="best-offers.html">Best Offers</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="signin.html">Sign In</a>
-    <a href="signup.html">Sign Up</a>
-  </nav>
-</header>
+  </header>
 
 <!-- ══════════════════════════════════════════════════════
      HERO
@@ -377,34 +377,124 @@
   <!-- ══════════════════════════════════════════════════════
        ABOUT (inline)
   ═══════════════════════════════════════════════════════ -->
-  <section class="about-inline" id="about">
-    <div class="about-inline__inner">
-      <p class="section-kicker">About Us</p>
-      <h2 class="section-heading">We are E-Marketing Lab co.</h2>
-      <div class="about-inline__grid">
-        <div class="about-inline__text">
-          <h3>Built for brands that want to grow — the right way.</h3>
-          <p>E-Marketing Lab is a data-first digital marketing agency based in Palestine. We combine strategy, creativity, and technology to help businesses reach real audiences, generate measurable results, and build lasting digital presence.</p>
-          <p>From performance advertising and SEO to creative content and brand identity — our team brings deep expertise across every growth channel.</p>
-          <a href="about.html" class="btn btn--primary" style="margin-top:8px;">Learn More About Us →</a>
+  <!-- ══════════════════════════════════════════════════════
+       ABOUT — MERGED FROM ABOUT PAGE
+  ═══════════════════════════════════════════════════════ -->
+  <section class="about-hero" id="about">
+    <div class="about-hero__inner">
+      <p class="section-kicker">Our Story</p>
+      <h1>Marketing that moves<br/><em>people — and numbers.</em></h1>
+      <p>We are a Palestinian digital marketing agency built on the belief that every business deserves marketing that actually works. Data-driven, AI-powered, and always human at its core.</p>
+    </div>
+  </section>
+
+  <section class="about-mission">
+    <div class="about-mission__inner">
+      <div class="about-mission__text">
+        <p class="section-kicker">Our Mission</p>
+        <h2>We exist to make great marketing accessible.</h2>
+        <p>E Marketing Lab was founded with one clear purpose: to bridge the gap between ambition and results for businesses that deserve to grow. We combine cutting-edge AI tools, deep industry expertise, and genuine partnership to deliver campaigns that don't just look good — they perform.</p>
+        <p>Every strategy we build starts with your goals, your audience, and your reality. No noise, no guesswork — just clear, measurable marketing that scales with you.</p>
+        <a href="service-detail.html" class="btn btn--primary" style="margin-top:8px;">Explore Our Services →</a>
+      </div>
+      <div class="about-mission__visual">🚀</div>
+    </div>
+  </section>
+
+  <section class="about-stats">
+    <div class="about-stats__inner">
+      <div class="stat-item">
+        <div class="stat-item__number">200+</div>
+        <div class="stat-item__label">Clients Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">10+</div>
+        <div class="stat-item__label">Service Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">94%</div>
+        <div class="stat-item__label">Client Retention Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">3.8×</div>
+        <div class="stat-item__label">Average ROI Delivered</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-values">
+    <div class="about-values__inner">
+      <p class="section-kicker">Our Values</p>
+      <h2 class="section-heading">What drives us every day</h2>
+      <div class="why-us__grid">
+        <div class="why-card">
+          <div class="why-card__icon">🎯</div>
+          <h3 class="why-card__title">Clarity Over Complexity</h3>
+          <p class="why-card__body">We cut through the noise to deliver strategies that are simple to understand and powerful in execution.</p>
         </div>
-        <div class="about-inline__stats">
-          <div class="about-stat">
-            <div class="about-stat__num">200+</div>
-            <div class="about-stat__label">Clients Served</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat__num">3.8×</div>
-            <div class="about-stat__label">Average ROI</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat__num">94%</div>
-            <div class="about-stat__label">Client Retention</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat__num">10+</div>
-            <div class="about-stat__label">Services Offered</div>
-          </div>
+        <div class="why-card">
+          <div class="why-card__icon">🔬</div>
+          <h3 class="why-card__title">Evidence-Based Decisions</h3>
+          <p class="why-card__body">Every recommendation we make is backed by data, not assumptions. We measure everything so you never have to guess.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">🤝</div>
+          <h3 class="why-card__title">True Partnership</h3>
+          <p class="why-card__body">We work alongside you — not for you. Your success is our success, and we treat your goals with the same urgency you do.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">⚡</div>
+          <h3 class="why-card__title">Speed &amp; Agility</h3>
+          <p class="why-card__body">Markets move fast. We build lean processes that let us iterate, learn, and adapt without losing momentum.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">🛡️</div>
+          <h3 class="why-card__title">Integrity Always</h3>
+          <p class="why-card__body">We say what we mean and deliver what we promise. Transparent reporting, honest assessments, no vanity metrics.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">🌍</div>
+          <h3 class="why-card__title">Local Roots, Global Reach</h3>
+          <p class="why-card__body">Born in Palestine, built for the world. We bring deep regional knowledge with the tools to compete globally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-team">
+    <div class="about-team__inner">
+      <p class="section-kicker">Our Team</p>
+      <h2 class="section-heading">The minds behind the results</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-card__avatar">ZM</div>
+          <div class="team-card__name">Zeina M.</div>
+          <div class="team-card__role">Founder &amp; CEO</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">SA</div>
+          <div class="team-card__name">Sara A.</div>
+          <div class="team-card__role">Head of Strategy</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">KH</div>
+          <div class="team-card__name">Kareem H.</div>
+          <div class="team-card__role">Media Buying Lead</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">LN</div>
+          <div class="team-card__name">Lina N.</div>
+          <div class="team-card__role">Creative Director</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">MF</div>
+          <div class="team-card__name">Mohammad F.</div>
+          <div class="team-card__role">SEO &amp; Growth</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">RJ</div>
+          <div class="team-card__name">Rania J.</div>
+          <div class="team-card__role">Content Strategist</div>
         </div>
       </div>
     </div>
@@ -473,14 +563,14 @@
           </div>
         </div>
 
-        <div>
-          <p class="budget-label">SELECT YOUR BUDGET</p>
-          <div class="budget-options">
-            <button type="button" class="budget-btn" onclick="toggleBudget(this)">50 – 150 USD</button>
-            <button type="button" class="budget-btn" onclick="toggleBudget(this)">150 – 500 USD</button>
-            <button type="button" class="budget-btn" onclick="toggleBudget(this)">500 – 1000 USD</button>
+          <div>
+            <p class="budget-label">SELECT YOUR BUDGET</p>
+            <div class="budget-options">
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">50 – 150 USD</button>
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">150 – 500 USD</button>
+              <button type="button" class="budget-btn" onclick="toggleBudget(this)">500 – 1000 USD</button>
+            </div>
           </div>
-        </div>
 
         <div class="form-field form-field--full">
             <textarea
