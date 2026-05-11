@@ -237,8 +237,8 @@ const AUTH_USERS_KEY   = 'eml_users';
 const AUTH_CURRENT_KEY = 'eml_current_user';
 
 const DEFAULT_USERS = [
-  { firstName: 'Demo', lastName: 'User', email: 'demo@labcentah.com', password: 'demo1234' },
-  { firstName: 'Admin', lastName: '',    email: 'admin@labcentah.com', password: 'admin123' },
+  { firstName: 'Demo',  lastName: 'User', email: 'demo@labcentah.com',  password: 'demo1234', role: 'user'  },
+  { firstName: 'Admin', lastName: '',     email: 'admin@labcentah.com', password: 'admin123', role: 'admin' },
 ];
 
 function getUsers() {
@@ -275,7 +275,19 @@ function signInUser(email, password) {
   return { ok: true, user };
 }
 function setCurrentUser(user) {
-  try { localStorage.setItem(AUTH_CURRENT_KEY, JSON.stringify({ email: user.email, firstName: user.firstName, lastName: user.lastName })); } catch(e) {}
+  const role = user.role
+    || ((user.email || '').toLowerCase() === 'admin@labcentah.com' ? 'admin' : 'user');
+  try { localStorage.setItem(AUTH_CURRENT_KEY, JSON.stringify({ email: user.email, firstName: user.firstName, lastName: user.lastName, role })); } catch(e) {}
+}
+function isAdmin(user) {
+  user = user || getCurrentUser();
+  if (!user) return false;
+  if (user.role === 'admin') return true;
+  /* Fallback for sessions saved before role was added */
+  return (user.email || '').toLowerCase() === 'admin@labcentah.com';
+}
+function postSignInRedirect() {
+  window.location.href = isAdmin() ? 'admin.html' : 'index.html';
 }
 function getCurrentUser() {
   try { return JSON.parse(localStorage.getItem(AUTH_CURRENT_KEY) || 'null'); }

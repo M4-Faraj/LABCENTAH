@@ -719,5 +719,17 @@ Priority Support
     alert('Settings saved! (Connect to backend to persist.)');
   }
 </script>
+<script src="main.js"></script>
+<script>
+  /* Guard: only admins can see this page */
+  (function adminGuard() {
+    const user = getCurrentUser();
+    if (!user) { window.location.replace('signin.html'); return; }
+    if (!isAdmin(user)) {
+      alert('You need an admin account to view this page.');
+      window.location.replace('index.html');
+    }
+  })();
+</script>
 </body>
 </html>
