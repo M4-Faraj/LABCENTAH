@@ -1362,6 +1362,12 @@ input, textarea, select { font-family: var(--f-body); }
   color: var(--c-purple);
   opacity: .4;
 }
+.service-media__placeholder--video {
+  border-style: solid;
+  border-color: var(--c-border);
+  background: #000;
+}
+.service-media__placeholder--video::after { content: none; }
 .service-media__hint { font-size: 13px; color: #7c5ea0; }
 
 /* purchase panel */
