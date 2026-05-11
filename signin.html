@@ -18,23 +18,14 @@
   <header class="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <svg class="logo-svg" width="44" height="26" viewBox="0 0 88 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M44 26C44 26 30 6 16 6C7.163 6 0 13.163 0 22C0 32.493 8.507 41 19 41C33 41 44 26 44 26C44 26 55 12 69 12C78.941 12 88 21.059 88 31C88 39.837 80.837 47 72 47C58 47 44 26 44 26Z" stroke="url(#signin-nav-lg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <defs>
-            <linearGradient id="signin-nav-lg" x1="0" y1="6" x2="88" y2="47" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#7C3AED"/>
-              <stop offset="48%" stop-color="#C026D3"/>
-              <stop offset="100%" stop-color="#FF5E1A"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="images/logo.png" alt="E Marketing Lab co." class="logo-img" />
         <span>E Marketing Lab co.</span>
       </a>
       <nav class="navbar__links">
         <a href="index.html">Home</a>
         <a href="service-detail.html">Services</a>
         <a href="success-stories.html">Success Stories</a>
-        <a href="about.html">About</a>
+        <a href="index.html#about">About</a>
         <a href="best-offers.html">Best Offers</a>
       </nav>
       <div class="navbar__actions">
@@ -50,16 +41,7 @@
     <!-- Left brand panel -->
     <div class="auth-brand">
       <div class="auth-brand__logo">
-        <svg width="52" height="32" viewBox="0 0 88 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M44 26C44 26 30 6 16 6C7.163 6 0 13.163 0 22C0 32.493 8.507 41 19 41C33 41 44 26 44 26C44 26 55 12 69 12C78.941 12 88 21.059 88 31C88 39.837 80.837 47 72 47C58 47 44 26 44 26Z" stroke="url(#signin-lg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <defs>
-            <linearGradient id="signin-lg" x1="0" y1="6" x2="88" y2="47" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#7C3AED"/>
-              <stop offset="48%" stop-color="#C026D3"/>
-              <stop offset="100%" stop-color="#FF5E1A"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="images/logo.png" alt="E Marketing Lab co." class="logo-img" />
         <span>E Marketing Lab co.</span>
       </div>
       <p class="auth-brand__tagline">Welcome<br/><em>back.</em></p>
@@ -118,23 +100,51 @@
 
   <script src="main.js"></script>
   <script>
+    function showAuthError(msg) {
+      let el = document.getElementById('auth-error');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'auth-error';
+        el.style.cssText = 'background:#fee2e2;color:#991b1b;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:14px;border:1px solid #fecaca;';
+        const form = document.querySelector('form');
+        form.parentNode.insertBefore(el, form);
+      }
+      el.textContent = msg;
+    }
     function handleSignIn(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
-      const email = document.getElementById('email').value;
-      if (!email || !email.includes('@')) {
-        document.getElementById('email').style.borderColor = '#e11d48';
+      const emailEl = document.getElementById('email');
+      const passEl  = document.getElementById('password');
+      emailEl.style.borderColor = '';
+      passEl.style.borderColor = '';
+      if (!emailEl.value || !emailEl.value.includes('@')) {
+        emailEl.style.borderColor = '#e11d48';
+        showAuthError('Enter a valid email address.');
+        return;
+      }
+      const result = signInUser(emailEl.value, passEl.value);
+      if (!result.ok) {
+        showAuthError(result.error);
+        passEl.style.borderColor = '#e11d48';
         return;
       }
       btn.textContent = 'Signing in…';
       btn.disabled = true;
-      setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+      setTimeout(() => { window.location.href = 'index.html'; }, 600);
     }
     function handleSocialAuth(provider) {
       const btn = event.currentTarget;
       btn.textContent = `Connecting to ${provider}…`;
       btn.disabled = true;
-      setTimeout(() => { window.location.href = 'index.html'; }, 1400);
+      const demoEmail = provider.toLowerCase() + '@labcentah.com';
+      const existing = findUser(demoEmail);
+      if (!existing) {
+        registerUser({ firstName: provider, lastName: 'User', email: demoEmail, password: 'social' });
+      } else {
+        setCurrentUser(existing);
+      }
+      setTimeout(() => { window.location.href = 'index.html'; }, 800);
     }
     function togglePassword(id, btn) {
       const input = document.getElementById(id);
@@ -144,10 +154,15 @@
   </script>
   <!-- ACCESSIBILITY PANEL -->
   <div aria-live="polite" aria-atomic="true" class="sr-announce" id="a11y-announce"></div>
-  <button class="a11y-trigger" id="a11y-trigger" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11y-panel" aria-label="Open accessibility options">♿</button>
+  <button class="a11y-trigger" id="a11y-trigger" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11y-panel" aria-label="Open accessibility helper">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="4.2" r="2.1"/>
+      <path d="M20.5 8.6c.3.3.3.8 0 1.1-.3.3-.8.3-1.1 0L15.5 9v3.4l1.9 8a.9.9 0 0 1-1.7.4l-1.9-7.7h-3.6L8.3 20.8a.9.9 0 0 1-1.7-.4l1.9-8V9L4.6 9.7c-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9L8 7.4c.3-.1.7-.1 1 0h6c.3-.1.7-.1 1 0l3.5.9c.3.1.6.2.8.4z"/>
+    </svg>
+  </button>
   <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility options" aria-hidden="true">
     <div class="a11y-panel__header">
-      <div class="a11y-panel__title">♿ Accessibility</div>
+      <div class="a11y-panel__title"><span class="a11y-panel__title-icon" aria-hidden="true">✦</span> Accessibility Helper</div>
       <button class="a11y-close" onclick="toggleA11yPanel()" aria-label="Close accessibility panel">✕</button>
     </div>
     <div class="a11y-option">

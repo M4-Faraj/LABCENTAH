@@ -22,16 +22,7 @@
   <header class="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <svg class="logo-svg" width="44" height="26" viewBox="0 0 88 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M44 26C44 26 30 6 16 6C7.163 6 0 13.163 0 22C0 32.493 8.507 41 19 41C33 41 44 26 44 26C44 26 55 12 69 12C78.941 12 88 21.059 88 31C88 39.837 80.837 47 72 47C58 47 44 26 44 26Z" stroke="url(#sd-nav-lg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <defs>
-            <linearGradient id="sd-nav-lg" x1="0" y1="6" x2="88" y2="47" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#7C3AED"/>
-              <stop offset="48%" stop-color="#C026D3"/>
-              <stop offset="100%" stop-color="#FF5E1A"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="images/logo.png" alt="E Marketing Lab co." class="logo-img" />
         <span>E Marketing Lab co.</span>
       </a>
 
@@ -54,7 +45,7 @@
         </div>
         <a href="success-stories.html">Success Stories</a>
         <a href="index.html#contact">Contact</a>
-        <a href="about.html">About</a>
+        <a href="index.html#about">About</a>
         <a href="best-offers.html">Best Offers</a>
       </nav>
 
@@ -67,7 +58,7 @@
           <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
           <span class="cart-badge" id="cart-count">0</span>
         </a>
-        <a href="#" class="nav-icon-btn" aria-label="Wishlist">♡</a>
+        <a href="wishlist.html" class="nav-icon-btn wishlist-link" aria-label="Wishlist" title="Wishlist" style="position:relative;">♥<span class="wishlist-badge" style="display:none;">0</span></a>
         <a href="#" class="nav-icon-btn" aria-label="Notifications">
           <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 16.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
@@ -82,7 +73,7 @@
       <a href="index.html">Home</a>
       <a href="service-detail.html">Services</a>
       <a href="success-stories.html">Success Stories</a>
-      <a href="about.html">About</a>
+      <a href="index.html#about">About</a>
       <a href="best-offers.html">Best Offers</a>
       <a href="index.html#contact">Contact</a>
       <a href="signin.html">Sign In</a>
@@ -335,7 +326,6 @@
 
     /* ── Interactions ─────────────────────────────── */
     let currentRating = 0;
-    let inWishlist    = false;
 
     function setRating(val) {
       currentRating = val;
@@ -344,13 +334,21 @@
       });
     }
 
-    function toggleWishlist(btn) {
-      inWishlist = !inWishlist;
-      btn.textContent  = inWishlist ? '♥' : '♡';
-      btn.style.color  = inWishlist ? '#e11d48' : '';
-      btn.style.borderColor = inWishlist ? '#e11d48' : '';
-      btn.style.background  = inWishlist ? '#fff5f7' : '';
+    function paintWishlistBtn(btn, liked) {
+      btn.textContent       = liked ? '♥' : '♡';
+      btn.style.color       = liked ? '#e11d48' : '';
+      btn.style.borderColor = liked ? '#e11d48' : '';
+      btn.style.background  = liked ? '#fff5f7' : '';
     }
+    function toggleWishlist(btn) {
+      const liked = toggleWishlistItem({ id: svc.id, name: svc.name, icon: '', desc: svc.desc });
+      paintWishlistBtn(btn, liked);
+    }
+    /* Reflect current state on load */
+    (function() {
+      const btn = document.getElementById('wishlist-btn');
+      if (btn) paintWishlistBtn(btn, isInWishlist(svc.id));
+    })();
 
     function updatePrice(radio) { /* tier selection handled by CSS radio state */ }
 
@@ -375,7 +373,7 @@
       document.getElementById('chatbot-box').classList.toggle('open');
     }
     const _CHAT_RULES = [
-      { keys: ['price','cost','pricing','how much','budget'], reply: 'Our packages start at $50. Check out our <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> page!' },
+      { keys: ['price','cost','pricing','how much','budget'], reply: 'Our packages start at $50. Check out our <a href="index.html#about">About</a> <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> page!' },
       { keys: ['service','offer','what do'], reply: 'We offer Media Buying, SEO, Content, Web Dev, Design, CRM, and more.' },
       { keys: ['contact','email','phone','reach'], reply: 'Email us at <strong>EMarketingLab.co@gmail.com</strong> or <a href="index.html#contact" style="color:var(--c-purple);">fill the form</a>.' },
       { keys: ['hello','hi','hey'], reply: '👋 Hello! Welcome to E-Marketing Lab. How can we help?' },
@@ -384,7 +382,7 @@
     const _DEFAULT_REPLIES = [
       'Great question! Our team will get back to you shortly.',
       'You can reach us at EMarketingLab.co@gmail.com.',
-      'Check our <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> for current deals!',
+      'Check our <a href="index.html#about">About</a> <a href="best-offers.html" style="color:var(--c-purple);">Best Offers</a> for current deals!',
     ];
     let _chatIdx = 0;
     function sendChat() {
@@ -433,7 +431,7 @@
     function changeSize(dir) {
       a11yFs = Math.max(-2, Math.min(6, a11yFs + dir));
       const pct = 100 + a11yFs * 12.5;
-      document.documentElement.style.fontSize = pct + '%';
+      document.body.style.zoom = pct + '%';
       const label = Math.round(pct) + '%';
       const val = document.getElementById('a11y-size-val');
       if (val) val.textContent = label;
@@ -442,7 +440,7 @@
     }
     function resetA11y() {
       document.body.classList.remove('high-contrast', 'dyslexia-font', 'reduce-motion');
-      document.documentElement.style.fontSize = '';
+      document.body.style.zoom = '';
       a11yFs = 0;
       ['a11y-contrast','a11y-dyslexia','a11y-motion'].forEach(id => { const el = document.getElementById(id); if (el) el.checked = false; });
       const val = document.getElementById('a11y-size-val'); if (val) val.textContent = '100%';
@@ -459,7 +457,7 @@
           if (s.contrast) { document.body.classList.add('high-contrast'); const el=document.getElementById('a11y-contrast'); if(el) el.checked=true; }
           if (s.dyslexia) { document.body.classList.add('dyslexia-font'); const el=document.getElementById('a11y-dyslexia'); if(el) el.checked=true; }
           if (s.motion)   { document.body.classList.add('reduce-motion');  const el=document.getElementById('a11y-motion');   if(el) el.checked=true; }
-          if (s.fs) { a11yFs=s.fs; const pct=100+a11yFs*12.5; document.documentElement.style.fontSize=pct+'%'; const v=document.getElementById('a11y-size-val'); if(v) v.textContent=Math.round(pct)+'%'; }
+          if (s.fs) { a11yFs=s.fs; const pct=100+a11yFs*12.5; document.body.style.zoom=pct+'%'; const v=document.getElementById('a11y-size-val'); if(v) v.textContent=Math.round(pct)+'%'; }
         }
       } catch(e){}
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const el=document.getElementById('a11y-motion'); if(el&&!el.checked){el.checked=true;document.body.classList.add('reduce-motion');} }
@@ -479,7 +477,7 @@
     </div>
     <div class="chatbot-box__body" id="chatbot-body">
       <div class="chatbot-msg chatbot-msg--bot">👋 Hello! How can I help you today?</div>
-      <div class="chatbot-msg chatbot-msg--bot">Browse our <a href="service-detail.html" style="color:var(--c-purple);">services</a> or <a href="best-offers.html" style="color:var(--c-purple);">best offers</a>.</div>
+      <div class="chatbot-msg chatbot-msg--bot">Browse our <a href="service-detail.html" style="color:var(--c-purple);">services</a> or <a href="index.html#about">About</a> <a href="best-offers.html" style="color:var(--c-purple);">best offers</a>.</div>
     </div>
     <div class="chatbot-box__footer">
       <input type="text" id="chatbot-input" placeholder="Write a message…" onkeydown="if(event.key==='Enter')sendChat()" />
@@ -489,10 +487,15 @@
 
   <!-- ACCESSIBILITY PANEL -->
   <div aria-live="polite" aria-atomic="true" class="sr-announce" id="a11y-announce"></div>
-  <button class="a11y-trigger" id="a11y-trigger" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11y-panel" aria-label="Open accessibility options">♿</button>
+  <button class="a11y-trigger" id="a11y-trigger" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11y-panel" aria-label="Open accessibility helper">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="4.2" r="2.1"/>
+      <path d="M20.5 8.6c.3.3.3.8 0 1.1-.3.3-.8.3-1.1 0L15.5 9v3.4l1.9 8a.9.9 0 0 1-1.7.4l-1.9-7.7h-3.6L8.3 20.8a.9.9 0 0 1-1.7-.4l1.9-8V9L4.6 9.7c-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9L8 7.4c.3-.1.7-.1 1 0h6c.3-.1.7-.1 1 0l3.5.9c.3.1.6.2.8.4z"/>
+    </svg>
+  </button>
   <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility options" aria-hidden="true">
     <div class="a11y-panel__header">
-      <div class="a11y-panel__title">♿ Accessibility</div>
+      <div class="a11y-panel__title"><span class="a11y-panel__title-icon" aria-hidden="true">✦</span> Accessibility Helper</div>
       <button class="a11y-close" onclick="toggleA11yPanel()" aria-label="Close accessibility panel">✕</button>
     </div>
     <div class="a11y-option">
