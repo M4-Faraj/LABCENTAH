@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — E Marketing Lab co.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="announcement-bar" role="banner" aria-label="Promotional announcement">
+  Limited time — transform your brand today.<a href="best-offers.html">Book your consultation Now →</a>
+</div>
+
+<header class="navbar" role="banner">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <img src="images/logo.png" alt="E Marketing Lab co." class="logo-img" />
+      <span>E Marketing Lab co.</span>
+    </a>
+    <nav class="navbar__links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="service-detail.html">Services</a>
+      <a href="success-stories.html">Success Stories</a>
+      <a href="index.html#about">About</a>
+      <a href="best-offers.html">Best Offers</a>
+    </nav>
+    <div class="navbar__actions">
+      <a href="cart.html" class="nav-icon-btn cart-btn active" aria-label="Cart" style="position:relative;">
+        <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="wishlist.html" class="nav-icon-btn wishlist-link" aria-label="Wishlist" title="Wishlist" style="position:relative;">♥<span class="wishlist-badge" style="display:none;">0</span></a>
+      <button class="nav-lang-btn">EN</button>
+      <a href="signin.html" class="nav-signin-btn">Sign In</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="cart-page" style="max-width:1100px;margin:0 auto;padding:60px 24px;">
+  <p class="section-kicker">Your Selections</p>
+  <h1 class="section-heading" style="margin-bottom:8px;">Shopping Cart</h1>
+  <p id="cart-summary" style="font-size:15px;color:#7c5ea0;margin-bottom:28px;">Loading…</p>
+
+  <div class="cart-layout" style="display:grid;grid-template-columns:1.8fr 1fr;gap:32px;align-items:start;">
+
+    <section class="cart-items" aria-label="Cart items">
+      <div id="cart-empty" style="display:none;background:var(--c-white);border:1px dashed var(--c-border);border-radius:16px;padding:48px 24px;text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;">🛒</div>
+        <h2 style="font-size:22px;margin-bottom:6px;">Your cart is empty</h2>
+        <p style="color:#7c5ea0;margin-bottom:20px;">Browse our services and add what fits your goals.</p>
+        <a href="service-detail.html" class="btn btn--primary">Explore Services →</a>
+      </div>
+      <div id="cart-list"></div>
+    </section>
+
+    <aside class="cart-summary-card" style="background:var(--c-white);border:1px solid var(--c-border);border-radius:16px;padding:24px;position:sticky;top:24px;">
+      <h2 style="font-family:var(--f-display);font-size:18px;font-weight:800;color:var(--c-ink);margin-bottom:18px;">Order Summary</h2>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:#7c5ea0;">
+        <span>Items</span><span id="sum-items">0</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:#7c5ea0;">
+        <span>Subtotal</span><span id="sum-subtotal">$0.00</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:#7c5ea0;">
+        <span>Processing fee</span><span>$0.00</span>
+      </div>
+      <hr style="border:none;border-top:1.5px solid var(--c-ink);margin:14px 0;" />
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
+        <span style="font-family:var(--f-display);font-weight:800;font-size:18px;">Total</span>
+        <span style="font-family:var(--f-display);font-weight:800;font-size:22px;" id="sum-total">$0.00</span>
+      </div>
+      <button id="checkout-btn" class="btn btn--primary btn--full" onclick="goToCheckout()">Proceed to Checkout →</button>
+      <button id="clear-btn" class="btn btn--full" style="margin-top:10px;background:transparent;border:1.5px solid var(--c-border);color:var(--c-ink);" onclick="handleClear()">Clear cart</button>
+      <p style="font-size:12px;color:#9b87b8;margin-top:14px;text-align:center;">Secure checkout · 7-day money-back guarantee</p>
+    </aside>
+
+  </div>
+</main>
+
+<script src="main.js"></script>
+<script>
+  function renderCart() {
+    const items = getCart();
+    const list = document.getElementById('cart-list');
+    const empty = document.getElementById('cart-empty');
+    const summary = document.getElementById('cart-summary');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const clearBtn = document.getElementById('clear-btn');
+
+    list.innerHTML = '';
+
+    if (!items.length) {
+      empty.style.display = '';
+      summary.textContent = 'No services in your cart yet.';
+      checkoutBtn.disabled = true; checkoutBtn.style.opacity = '.5'; checkoutBtn.style.cursor = 'not-allowed';
+      clearBtn.style.display = 'none';
+    } else {
+      empty.style.display = 'none';
+      const totalQty = items.reduce((n, it) => n + it.qty, 0);
+      summary.textContent = `${items.length} service${items.length > 1 ? 's' : ''} · ${totalQty} item${totalQty > 1 ? 's' : ''}`;
+      checkoutBtn.disabled = false; checkoutBtn.style.opacity = ''; checkoutBtn.style.cursor = '';
+      clearBtn.style.display = '';
+
+      items.forEach(it => {
+        const key = `${it.id}::${it.tier || ''}`;
+        const lineTotal = (it.price * it.qty).toFixed(2);
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+        row.innerHTML = `
+          <div class="cart-row__main">
+            <div class="cart-row__name">${escapeHtml(it.name)}</div>
+            <div class="cart-row__tier">${escapeHtml(it.tier || 'Standard')} · $${it.price}/each</div>
+          </div>
+          <div class="cart-row__qty" role="group" aria-label="Quantity">
+            <button onclick="changeQty('${key}', -1)" aria-label="Decrease">−</button>
+            <span aria-live="polite">${it.qty}</span>
+            <button onclick="changeQty('${key}', 1)" aria-label="Increase">+</button>
+          </div>
+          <div class="cart-row__price">$${lineTotal}</div>
+          <button class="cart-row__remove" onclick="handleRemove('${key}')" aria-label="Remove from cart">✕</button>
+        `;
+        list.appendChild(row);
+      });
+    }
+
+    document.getElementById('sum-items').textContent = items.reduce((n, it) => n + it.qty, 0);
+    const sub = cartSubtotal();
+    document.getElementById('sum-subtotal').textContent = '$' + sub.toFixed(2);
+    document.getElementById('sum-total').textContent = '$' + sub.toFixed(2);
+  }
+
+  function changeQty(key, delta) {
+    const it = getCart().find(x => `${x.id}::${x.tier || ''}` === key);
+    if (!it) return;
+    cartSetQty(key, it.qty + delta);
+    renderCart();
+  }
+  function handleRemove(key) {
+    cartRemove(key);
+    renderCart();
+  }
+  function handleClear() {
+    if (!confirm('Remove everything from your cart?')) return;
+    cartClear();
+    renderCart();
+  }
+  function goToCheckout() {
+    if (!getCart().length) return;
+    window.location.href = 'checkout.html';
+  }
+  function escapeHtml(s) {
+    return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>

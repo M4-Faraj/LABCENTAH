@@ -52,10 +52,10 @@
 
       <!-- Step breadcrumb -->
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:40px;">
-        <div style="display:flex; align-items:center; gap:8px;">
+        <a href="cart.html" style="display:flex; align-items:center; gap:8px; text-decoration:none;">
           <div style="width:28px;height:28px;border-radius:50%;background:var(--c-purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;">1</div>
           <span style="font-size:13px;font-weight:600;color:var(--c-purple);">Cart</span>
-        </div>
+        </a>
         <div style="width:32px;height:1.5px;background:var(--c-border);"></div>
         <div style="display:flex; align-items:center; gap:8px;">
           <div style="width:28px;height:28px;border-radius:50%;background:var(--c-purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;">2</div>
@@ -72,23 +72,21 @@
       <section style="margin-bottom: 48px;">
         <h2 class="checkout__section-title">Order details</h2>
 
-        <div class="order-item">
-          <div class="order-item__info">
-            <div class="order-item__name">Media Buying &amp; Performance Advertising</div>
-            <div class="order-item__tier">Beginner </div>
-          </div>
-          <div class="order-item__price">$50</div>
+        <div id="checkout-items"></div>
+        <div id="checkout-empty" style="display:none;padding:24px;background:var(--c-lavender-2);border:1px dashed var(--c-border);border-radius:12px;text-align:center;">
+          <p style="margin-bottom:12px;color:#7c5ea0;">Your cart is empty.</p>
+          <a href="cart.html" class="btn btn--primary">Go to cart →</a>
         </div>
 
         <div style="display:flex; justify-content:space-between; padding: 20px 0 0; font-size:13px; color:#7c5ea0;">
-          <span>Subtotal</span><span style="font-weight:600;">$50.00</span>
+          <span>Subtotal</span><span style="font-weight:600;" id="checkout-subtotal">$0.00</span>
         </div>
         <div style="display:flex; justify-content:space-between; padding: 6px 0; font-size:13px; color:#7c5ea0;">
           <span>Processing fee</span><span style="font-weight:600;">$0.00</span>
         </div>
         <div style="display:flex; justify-content:space-between; padding: 14px 0 0; border-top:1.5px solid var(--c-ink); margin-top:10px;">
           <span style="font-family:var(--f-display);font-weight:800;font-size:18px;">Total</span>
-          <span style="font-family:var(--f-display);font-weight:800;font-size:18px;" id="checkout-total">$50.00 USD</span>
+          <span style="font-family:var(--f-display);font-weight:800;font-size:18px;" id="checkout-total">$0.00 USD</span>
         </div>
       </section>
 
@@ -178,9 +176,9 @@
           <span class="order-summary-card__total-label">Total</span>
           <span class="order-summary-card__currency">USD</span>
         </div>
-        <div style="font-family:var(--f-display);font-size:36px;font-weight:800;color:var(--c-ink);margin-bottom:20px;">$50.00</div>
+        <div style="font-family:var(--f-display);font-size:36px;font-weight:800;color:var(--c-ink);margin-bottom:20px;" id="checkout-total-big">$0.00</div>
 
-        <button class="btn btn--dark btn--full" onclick="document.getElementById('hidden-submit').click()">
+        <button class="btn btn--dark btn--full" id="confirm-pay-btn" onclick="document.getElementById('hidden-submit').click()">
           Confirm &amp; Pay
         </button>
 
@@ -241,14 +239,58 @@
 
     function handlePayment(e) {
       e.preventDefault();
+      if (!getCart().length) { window.location.href = 'cart.html'; return; }
+      cartClear();
       const modal = document.getElementById('success-modal');
       modal.style.display = 'flex';
     }
 
     function handlePayPal() {
+      if (!getCart().length) { window.location.href = 'cart.html'; return; }
+      cartClear();
       const modal = document.getElementById('success-modal');
       modal.style.display = 'flex';
     }
+
+    /* ── Render order from the cart ───────────────────── */
+    function renderCheckoutOrder() {
+      const items = getCart();
+      const wrap = document.getElementById('checkout-items');
+      const empty = document.getElementById('checkout-empty');
+      const subEl = document.getElementById('checkout-subtotal');
+      const totEl = document.getElementById('checkout-total');
+      const totBig = document.getElementById('checkout-total-big');
+      const payBtn = document.getElementById('confirm-pay-btn');
+      wrap.innerHTML = '';
+
+      if (!items.length) {
+        empty.style.display = '';
+        if (payBtn) { payBtn.disabled = true; payBtn.style.opacity = '.5'; payBtn.style.cursor = 'not-allowed'; }
+      } else {
+        empty.style.display = 'none';
+        if (payBtn) { payBtn.disabled = false; payBtn.style.opacity = ''; payBtn.style.cursor = ''; }
+        items.forEach(it => {
+          const lineTotal = (it.price * it.qty).toFixed(2);
+          const row = document.createElement('div');
+          row.className = 'order-item';
+          row.innerHTML = `
+            <div class="order-item__info">
+              <div class="order-item__name">${escapeHtml(it.name)}</div>
+              <div class="order-item__tier">${escapeHtml(it.tier || 'Standard')} × ${it.qty}</div>
+            </div>
+            <div class="order-item__price">$${lineTotal}</div>`;
+          wrap.appendChild(row);
+        });
+      }
+      const sub = cartSubtotal();
+      if (subEl) subEl.textContent = '$' + sub.toFixed(2);
+      if (totEl) totEl.textContent = '$' + sub.toFixed(2) + ' USD';
+      if (totBig) totBig.textContent = '$' + sub.toFixed(2);
+    }
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+    document.addEventListener('DOMContentLoaded', renderCheckoutOrder);
   </script>
   <!-- ACCESSIBILITY PANEL -->
   <div aria-live="polite" aria-atomic="true" class="sr-announce" id="a11y-announce"></div>

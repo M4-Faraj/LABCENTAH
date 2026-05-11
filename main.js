@@ -114,18 +114,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* ── Cart persistence (sessionStorage) ──────────────────── */
-(function initCart() {
-  try {
-    const count = sessionStorage.getItem('cartCount') || '0';
-    document.querySelectorAll('.cart-badge').forEach(b => b.textContent = count);
-  } catch(e) {}
-})();
+/* ============================================================
+   CART (persistent — localStorage)
+   Items: { id, name, tier, price, qty }
+   key   = `${id}::${tier}` so the same service in different tiers
+           appears as separate lines.
+   ============================================================ */
+const CART_KEY = 'eml_cart';
 
-function updateCartStorage(n) {
-  try { sessionStorage.setItem('cartCount', n); } catch(e) {}
+function getCart() {
+  try {
+    const v = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+    return Array.isArray(v) ? v : [];
+  } catch(e) { return []; }
+}
+function saveCart(items) {
+  try { localStorage.setItem(CART_KEY, JSON.stringify(items)); } catch(e) {}
+  updateCartBadge();
+}
+function cartKey(it) { return `${it.id}::${it.tier || ''}`; }
+
+function cartAdd(item) {
+  if (!item || !item.id) return;
+  const it = { id: item.id, name: item.name || item.id, tier: item.tier || '', price: Number(item.price) || 0, qty: 1 };
+  const items = getCart();
+  const existing = items.find(x => cartKey(x) === cartKey(it));
+  if (existing) existing.qty += 1; else items.push(it);
+  saveCart(items);
+}
+function cartSetQty(key, qty) {
+  qty = Math.max(0, parseInt(qty, 10) || 0);
+  let items = getCart();
+  if (qty === 0) {
+    items = items.filter(it => cartKey(it) !== key);
+  } else {
+    const it = items.find(x => cartKey(x) === key);
+    if (it) it.qty = qty;
+  }
+  saveCart(items);
+}
+function cartRemove(key) { cartSetQty(key, 0); }
+function cartClear() { saveCart([]); }
+
+function cartCount() { return getCart().reduce((n, it) => n + (it.qty || 0), 0); }
+function cartSubtotal() { return getCart().reduce((s, it) => s + (it.price || 0) * (it.qty || 0), 0); }
+
+function updateCartBadge() {
+  const n = cartCount();
   document.querySelectorAll('.cart-badge').forEach(b => b.textContent = n);
 }
+
+/* Legacy shim — anything still calling updateCartStorage(n) won't break */
+function updateCartStorage() { updateCartBadge(); }
+
+/* One-time migration: if a number-only cart sat in sessionStorage, drop it */
+(function migrateLegacyCart() {
+  try { sessionStorage.removeItem('cartCount'); } catch(e) {}
+})();
 
 /* ============================================================
    WISHLIST (persistent — localStorage)
@@ -486,5 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateWishlistBadge();
   hydrateWishlistCards();
   updateAuthNav();
+  updateCartBadge();
   if (typeof window.__emlRestoreA11y === 'function') window.__emlRestoreA11y();
 });
