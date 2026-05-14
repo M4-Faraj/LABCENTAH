@@ -1204,6 +1204,13 @@ input, textarea, select { font-family: var(--f-body); }
   color: var(--c-ink);
   margin-bottom: 14px;
 }
+.budget-optional {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: var(--c-muted);
+  font-style: italic;
+}
 .budget-options {
   display: flex;
   gap: 12px;
@@ -1861,7 +1868,7 @@ input, textarea, select { font-family: var(--f-body); }
 
 .chatbot-box.open { display: flex; }
 
-/* مقبض السحب في الزاوية (زينة بسيطة) */
+/* Drag handle in the corner (simple decoration) */
 .chatbot-box::-webkit-resizer {
   background: linear-gradient(135deg, transparent 50%, var(--c-purple) 50%);
   border-bottom-right-radius: 16px;
@@ -1888,7 +1895,7 @@ input, textarea, select { font-family: var(--f-body); }
   flex-direction: column;
   gap: 10px;
   background: var(--c-lavender-2);
-  min-height: 0;  /* مهم عشان الـ flex يشتغل صح */
+  min-height: 0;  /* important so the flex layout works correctly */
 }
 
 .chatbot-msg {
@@ -2554,9 +2561,9 @@ body.dyslexia-font * {
   box-shadow: 0 4px 20px rgba(0,0,0,.2);
 }
 .join-cta-bar .btn--white:hover { background: var(--c-lavender); }
-/* ========== ميزات الذكاء الاصطناعي ========== */
+/* ========== AI features ========== */
 
-/* مودالات AI */
+/* AI modals */
 .modal {
   display: none;
   position: fixed;
@@ -2677,7 +2684,7 @@ body.dyslexia-font * {
   margin-top: 15px;
 }
 
-/* مؤشر الكتابة في الشات بوت */
+/* Typing indicator in the chatbot */
 .typing-indicator .message-content {
   display: flex;
   gap: 5px;
@@ -2730,7 +2737,7 @@ body.dyslexia-font * {
   }
 }
 
-/* تحسين عرض رسائل الشات بوت */
+/* Improve chatbot message display */
 .chatbot-message.bot .message-content p {
   background: #f0f0f0;
   padding: 12px 16px;
@@ -2747,7 +2754,7 @@ body.dyslexia-font * {
   border-top-right-radius: 4px;
   margin: 5px 0;
 }
-/* ── مقبض السحب لتغيير حجم الشات بوت ── */
+/* ── Drag handle to resize the chatbot ── */
 .chatbot-box {
   position: fixed;
   bottom: 96px;
@@ -2770,7 +2777,7 @@ body.dyslexia-font * {
 
 .chatbot-box.open { display: flex; }
 
-/* مقبض السحب المرئي في الزاوية اليمنى السفلية */
+/* Visible drag handle in the bottom-right corner */
 .chatbot-resize-handle {
   position: absolute;
   bottom: 0;
@@ -2785,7 +2792,7 @@ body.dyslexia-font * {
   justify-content: center;
 }
 
-/* السهم المرئي (ثلاث خطوط صغيرة) */
+/* Visible arrow (small corner glyph) */
 .chatbot-resize-handle::before {
   content: "◢";
   font-size: 18px;
@@ -2801,7 +2808,7 @@ body.dyslexia-font * {
   color: var(--c-orange);
 }
 
-/* الـ body عشان ياخذ المساحة المتبقية */
+/* the body so it takes the remaining space */
 .chatbot-box__body {
   padding: 16px;
   flex: 1;

@@ -28,6 +28,7 @@
 
       <nav class="navbar__links" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="active">Home</a>
+        <a href="index.html#about">About</a>
         <div class="nav-dropdown">
           <a href="service-detail.html">Services</a>
           <div class="dropdown-menu">
@@ -44,9 +45,8 @@
           </div>
         </div>
         <a href="success-stories.html">Success Stories</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="index.html#about">About</a>
         <a href="best-offers.html">Best Offers</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
 
       <div class="navbar__actions">
@@ -71,9 +71,9 @@
     </div>
     <nav class="mobile-nav" id="mobile-nav">
       <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
       <a href="service-detail.html">Services</a>
       <a href="success-stories.html">Success Stories</a>
-      <a href="index.html#about">About</a>
       <a href="best-offers.html">Best Offers</a>
       <a href="index.html#contact">Contact</a>
       <a href="signin.html">Sign In</a>
@@ -257,28 +257,6 @@
               <div class="ss-card__result">68 Leads / 30 Days</div>
               <div class="ss-card__company">Real Estate Developer</div>
               <p class="ss-card__desc">Full-funnel campaign with video ads and WhatsApp automation.</p>
-            </div>
-          </div>
-          <div class="ss-video-card">
-            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
-              <div class="ss-play-btn">▶</div>
-              <span class="ss-video-label">Client Story</span>
-            </div>
-            <div class="ss-video-info">
-              <div class="ss-card__result">↓54% Cost/Enroll</div>
-              <div class="ss-card__company">EdTech Startup</div>
-              <p class="ss-card__desc">AI-optimized audiences cut enrollment cost in half while scaling volume.</p>
-            </div>
-          </div>
-          <div class="ss-video-card">
-            <div class="ss-video-placeholder" onclick="playStoryVideo(this)">
-              <div class="ss-play-btn">▶</div>
-              <span class="ss-video-label">Client Story</span>
-            </div>
-            <div class="ss-video-info">
-              <div class="ss-card__result">+89% Engagement</div>
-              <div class="ss-card__company">Restaurant Chain</div>
-              <p class="ss-card__desc">Weekly short-form video + gamified giveaways nearly doubled engagement.</p>
             </div>
           </div>
         </div>
@@ -555,7 +533,7 @@
         </div>
 
           <div>
-            <p class="budget-label">SELECT YOUR BUDGET</p>
+            <p class="budget-label">SELECT YOUR BUDGET <span class="budget-optional">*optional</span></p>
             <div class="budget-options">
               <button type="button" class="budget-btn" onclick="toggleBudget(this)">50 – 150 USD</button>
               <button type="button" class="budget-btn" onclick="toggleBudget(this)">150 – 500 USD</button>
@@ -736,23 +714,60 @@
     if (el) el.textContent = n;
   })();
 
-  /* ── Success stories slider ─── */
-  let ssPos = 0;
-  function ssNext() {
-    const track = document.getElementById('ss-track');
-    const cards = track.querySelectorAll('.ss-card');
-    const cardW = cards[0].offsetWidth + 24;
-    const max   = (cards.length - 3) * cardW;
-    ssPos = Math.min(ssPos + cardW, max);
-    track.style.transform = `translateX(-${ssPos}px)`;
+  /* ── Success stories carousel (smooth infinite slide) ─── */
+  /* The site's reduced-motion rule forces `transition-duration: 0.01ms
+     !important` on everything. This slide is user-triggered (an arrow
+     click), so we set the transition as inline !important — the only
+     thing that outranks a stylesheet !important — to keep it smooth.  */
+  const SS_DUR = 450;
+  const SS_EASE = `transform ${SS_DUR}ms cubic-bezier(.4,0,.2,1)`;
+  let ssAnimating = false;
+  function ssSetTransition(track, value) {
+    track.style.setProperty('transition', value, 'important');
   }
-  function ssPrev() {
+  function ssShift(dir) {
     const track = document.getElementById('ss-track');
-    const cards = track.querySelectorAll('.ss-card');
-    const cardW = cards[0].offsetWidth + 24;
-    ssPos = Math.max(ssPos - cardW, 0);
-    track.style.transform = `translateX(-${ssPos}px)`;
+    if (!track || ssAnimating) return;
+    const cards = track.querySelectorAll('.ss-video-card');
+    if (cards.length < 2) return;
+    const gap  = parseFloat(getComputedStyle(track).gap) || 24;
+    const step = cards[0].offsetWidth + gap;
+    ssAnimating = true;
+
+    if (dir > 0) {
+      /* Next — clone the first card onto the end, commit the start
+         position, then slide left so the clone glides into view */
+      track.appendChild(cards[0].cloneNode(true));
+      ssSetTransition(track, 'none');
+      track.style.transform = 'translateX(0)';
+      void track.offsetWidth;                      /* commit start state */
+      ssSetTransition(track, SS_EASE);
+      track.style.transform = `translateX(-${step}px)`;
+      setTimeout(() => {
+        ssSetTransition(track, 'none');
+        track.removeChild(cards[0]);
+        track.style.transform = 'translateX(0)';
+        ssAnimating = false;
+      }, SS_DUR);
+    } else {
+      /* Prev — clone the last card to the front, commit the shifted
+         start position, then slide back to zero */
+      const last = cards[cards.length - 1];
+      track.insertBefore(last.cloneNode(true), cards[0]);
+      ssSetTransition(track, 'none');
+      track.style.transform = `translateX(-${step}px)`;
+      void track.offsetWidth;                      /* commit start state */
+      ssSetTransition(track, SS_EASE);
+      track.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        ssSetTransition(track, 'none');
+        track.removeChild(last);
+        ssAnimating = false;
+      }, SS_DUR);
+    }
   }
+  function ssNext() { ssShift(1); }
+  function ssPrev() { ssShift(-1); }
 
   /* ── Wishlist / Like buttons (persistent via main.js) ─ */
   function toggleLike(btn) {
