@@ -114,6 +114,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* ── Navbar scroll-spy — highlight the section you're in ──── */
+document.addEventListener('DOMContentLoaded', () => {
+  const here = (location.pathname.split('/').pop() || 'index.html');
+  const spy  = [];
+
+  document.querySelectorAll('.navbar__links a').forEach(link => {
+    const href    = link.getAttribute('href') || '';
+    const hashIdx = href.indexOf('#');
+    if (hashIdx > -1) {
+      /* anchor link (e.g. index.html#about) — track it if the section
+         actually lives on this page */
+      const el = document.getElementById(href.slice(hashIdx + 1));
+      if (el) spy.push({ link, el });
+    } else if (link.textContent.trim().toLowerCase() === 'home') {
+      /* "Home" maps to the top of the page (no section element) */
+      const file = href.split('/').pop();
+      if (file === here || file === '') spy.push({ link, el: null });
+    }
+  });
+  if (spy.length < 2) return;   /* not the homepage — nothing to track */
+
+  const setActive = active => spy.forEach(
+    ({ link }) => link.classList.toggle('active', link === active)
+  );
+
+  let ticking = false;
+  function onScroll() {
+    ticking = false;
+    let current = spy[0].link;                 /* default: Home / top */
+    spy.forEach(({ link, el }) => {
+      if (el && el.getBoundingClientRect().top <= 140) current = link;
+    });
+    /* at the very bottom, force the last section (footer/contact) */
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      current = spy[spy.length - 1].link;
+    }
+    setActive(current);
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+});
+
 /* ============================================================
    CART (persistent — localStorage)
    Items: { id, name, tier, price, qty }

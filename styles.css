@@ -2159,8 +2159,10 @@ textarea:focus-visible,
   border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  min-width: 300px;
-  flex-shrink: 0;
+  flex: 0 0 340px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
   transition: border-color var(--transition);
 }
 .ss-video-card:hover { border-color: rgba(147,51,234,.5); }
