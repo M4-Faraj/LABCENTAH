@@ -15,9 +15,9 @@ const COMPANY_INFO = {
             icon: "🎙️",
             description: "We help businesses grow through targeted digital ads using AI to reach the right audience, optimize performance, and maximize ROI.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -26,9 +26,9 @@ const COMPANY_INFO = {
             icon: "📊",
             description: "We craft end-to-end digital strategies that align with your business goals, covering paid, organic, and brand channels.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -37,9 +37,9 @@ const COMPANY_INFO = {
             icon: "📈",
             description: "We improve your website's visibility on search engines through keyword optimization, content enhancement, and link building—driving sustainable, long-term traffic without paid ads.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -48,9 +48,9 @@ const COMPANY_INFO = {
             icon: "📰",
             description: "We craft engaging content, from web copy and blogs to social media posts and short-form videos. Through powerful storytelling, we help build a strong and memorable brand.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -59,9 +59,9 @@ const COMPANY_INFO = {
             icon: "💡",
             description: "We create engaging designs, animations, and AI-generated visuals that capture attention and communicate your message clearly.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -70,9 +70,9 @@ const COMPANY_INFO = {
             icon: "</>",
             description: "We build modern websites, web and mobile apps, and e-commerce platforms. Our solutions combine creative design and advanced technology to deliver a seamless digital experience.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -81,9 +81,9 @@ const COMPANY_INFO = {
             icon: "🎓",
             description: "We provide hands-on training and workshops to help companies master digital marketing. Our programs empower teams to use tools, run campaigns, and analyze results effectively.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -92,9 +92,9 @@ const COMPANY_INFO = {
             icon: "🔗",
             description: "We help businesses streamline customer management and communication while building systems for scalable growth.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -103,9 +103,9 @@ const COMPANY_INFO = {
             icon: "🎮",
             description: "We create interactive, game-based campaigns—such as quizzes, challenges, and rewards—to boost engagement and capture attention.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         },
         {
@@ -114,9 +114,9 @@ const COMPANY_INFO = {
             icon: "⏱️",
             description: "We build forward-thinking marketing strategies powered by data, AI, and scalable systems—ensuring your business adapts, grows, and stays competitive.",
             tiers: {
-                starter: { price: "$50", name: "Starter" },
-                standard: { price: "$100", name: "Standard" },
-                advanced: { price: "$500", name: "Advanced" }
+                starter: { price: "$50", name: "Beginner" },
+                standard: { price: "$100", name: "Grow" },
+                advanced: { price: "$500", name: "Elite" }
             }
         }
     ],

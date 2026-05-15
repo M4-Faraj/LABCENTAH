@@ -112,7 +112,7 @@
         row.innerHTML = `
           <div class="cart-row__main">
             <div class="cart-row__name">${escapeHtml(it.name)}</div>
-            <div class="cart-row__tier">${escapeHtml(it.tier || 'Standard')} · $${it.price}/each</div>
+            <div class="cart-row__tier">${escapeHtml(it.tier || 'Grow')} · $${it.price}/each</div>
           </div>
           <div class="cart-row__qty" role="group" aria-label="Quantity">
             <button onclick="changeQty('${key}', -1)" aria-label="Decrease">−</button>

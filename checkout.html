@@ -278,7 +278,7 @@
           row.innerHTML = `
             <div class="order-item__info">
               <div class="order-item__name">${escapeHtml(it.name)}</div>
-              <div class="order-item__tier">${escapeHtml(it.tier || 'Standard')} × ${it.qty}</div>
+              <div class="order-item__tier">${escapeHtml(it.tier || 'Grow')} × ${it.qty}</div>
             </div>
             <div class="order-item__price">$${lineTotal}</div>`;
           wrap.appendChild(row);

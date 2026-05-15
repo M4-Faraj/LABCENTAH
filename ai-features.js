@@ -291,7 +291,7 @@ ${COMPANY_INFO.services.map(s => `- ${s.name}: ${s.description}`).join('\n')}
 INSTRUCTIONS:
 1. Choose ONLY ONE service that best matches the client's needs
 2. Explain why this service is the best fit (2-3 sentences)
-3. Mention the pricing tiers:Beginner ($50), Standard ($100), Advanced ($500)
+3. Mention the pricing tiers: Beginner ($50), Grow ($100), Elite ($500)
 4. End with an offer to help further
 5. Respond in the SAME LANGUAGE as the client's description
 
@@ -389,8 +389,8 @@ async function findServicesByBudget(budget, currency = "USD") {
 
 BASED ON REAL PRICING (DO NOT INVENT):
 - Our individual services start at $50/month (Beginner tier)
-- Standard tier: $100/month
-- Advanced tier: $500/month
+- Grow tier: $100/month
+- Elite tier: $500/month
 - We also offer bundle deals with 25-40% savings
 
 USER BUDGET: ${budgetInUSD} USD
@@ -398,8 +398,8 @@ USER BUDGET: ${budgetInUSD} USD
 INSTRUCTIONS:
 1. If budget is under $50: Suggest they contact us for custom options or start with a smaller project
 2. If budget is $50-100: Recommend Beginner tier of any service, mention which services fit best
-3. If budget is $100-500: Recommend Standard tier, possibly multiple services
-4. If budget is $500+: Recommend Advanced tier or bundle deals
+3. If budget is $100-500: Recommend Grow tier, possibly multiple services
+4. If budget is $500+: Recommend Elite tier or bundle deals
 
 Based on budget ${budgetInUSD} USD, provide:
 - Which tier(s) fit this budget

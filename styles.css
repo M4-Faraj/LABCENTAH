@@ -751,7 +751,10 @@ input, textarea, select { font-family: var(--f-body); }
   position: relative;
   transition: all var(--transition);
   background: var(--c-white);
+  display: flex;
+  flex-direction: column;
 }
+.offer-card .btn { margin-top: auto; }
 .offer-card:hover { border-color: var(--c-purple); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
 .offer-card.featured {
   border-color: var(--c-purple);
