@@ -711,12 +711,16 @@
     <div class="chatbot-msg chatbot-msg--bot">Browse our <a href="service-detail.html" style="color:var(--c-purple);">services</a> or <a href="best-offers.html" style="color:var(--c-purple);">best offers</a>.</div>
   </div>
   <div class="chatbot-box__footer">
-    <input type="text" id="chatbot-input" placeholder="Write a message…" onkeydown="if(event.key==='Enter')sendChat()" />
+    <input type="text" id="chatbot-input" placeholder="Write a message…" />
     <button onclick="sendChat()">➤</button>
   </div>
 </div>
 
 <script src="main.js"></script>
+<!-- local-config.js is gitignored; only present on the developer's machine.
+     When missing, AI_ENABLED becomes false and the chatbot stays offline. -->
+<script src="local-config.js" onerror="window.AI_OFFLINE=true"></script>
+<script src="company-data.js"></script>
 <script src="ai-features.js"></script>
 <script>
   /* ── Cart sync ────────────── */

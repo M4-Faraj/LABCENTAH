@@ -1,9 +1,15 @@
 // ai-features.js
 // ميزات الذكاء الاصطناعي مع قاعدة معرفة الشركة
 
+// The API key lives in local-config.js (gitignored) — never in this file.
+// If local-config.js isn't present (e.g. fresh clone, public deploy),
+// GROQ_API_KEY will be undefined and AI_ENABLED will be false; the chatbot
+// will show a friendly "AI is offline" message instead of trying to call Groq.
+const AI_ENABLED = typeof GROQ_API_KEY === 'string' && GROQ_API_KEY.length > 10;
 
 // ========== 1. دالة الاتصال بالذكاء الاصطناعي مع معلومات الشركة ==========
 async function sendToAI(userMessage, customContext = null) {
+    if (!AI_ENABLED) return aiOfflineMessage();
     try {
         // جلب معلومات الشركة من company-data.js
         let companyContext = "";
@@ -550,8 +556,16 @@ function extractNameFromMessage(message) {
     return null;
 }
 
+// رسالة احتياطية عندما يكون مفتاح الـAI غير موجود
+function aiOfflineMessage() {
+    return "🤖 The AI assistant is offline on this build.\n\n" +
+           "Browse our services or email us directly at <strong>EMarketingLab.co@gmail.com</strong> — " +
+           "we'll get back to you within one business day.";
+}
+
 // تعديل دالة sendToAI لتشمل الاسم المحفوظ
 async function sendToAIWithMemory(userMessage) {
+    if (!AI_ENABLED) return aiOfflineMessage();
     // التحقق إذا كانت الرسالة تحتوي على اسم جديد
     const newName = extractNameFromMessage(userMessage);
     if (newName && !savedName) {

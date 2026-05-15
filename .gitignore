@@ -1,0 +1,12 @@
+# Local-only config (API keys, secrets) — never commit these
+local-config.js
+.env
+.env.local
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
