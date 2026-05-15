@@ -622,7 +622,13 @@ input, textarea, select { font-family: var(--f-body); }
   color: var(--c-ink);
   margin-bottom: 4px;
 }
-.team-card__role { font-size: 13px; color: #7c5ea0; }
+.team-card__role { font-size: 13px; color: #7c5ea0; font-weight: 600; }
+.team-card__bio {
+  font-size: 12.5px;
+  color: #5a4575;
+  line-height: 1.55;
+  margin-top: 10px;
+}
 
 /* ── SUCCESS STORIES ──────────────────────────────────────── */
 .stories-hero {
