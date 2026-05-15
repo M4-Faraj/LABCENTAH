@@ -2050,6 +2050,8 @@ textarea:focus-visible,
   border-radius: 4px;
 }
 .wishlist-link { color: #e11d48 !important; font-size: 18px; }
+.wishlist-link .wishlist-icon-img { width: 20px; height: 20px; object-fit: contain; display: block; }
+.wishlist-link .wishlist-icon-emoji { font-size: 18px; line-height: 1; }
 
 /* ── CART ROWS ─────────────────────────────────────────── */
 .cart-row {

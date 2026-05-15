@@ -29,6 +29,7 @@
       <nav class="navbar__links">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
         <div class="nav-dropdown">
           <a href="service-detail.html" class="active">Services</a>
           <div class="dropdown-menu">
@@ -46,7 +47,6 @@
         </div>
         <a href="success-stories.html">Success Stories</a>
         <a href="best-offers.html">Best Offers</a>
-        <a href="index.html#contact">Contact</a>
       </nav>
 
       <div class="navbar__actions">
@@ -58,7 +58,7 @@
           <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
           <span class="cart-badge" id="cart-count">0</span>
         </a>
-        <a href="wishlist.html" class="nav-icon-btn wishlist-link" aria-label="Wishlist" title="Wishlist" style="position:relative;">♥<span class="wishlist-badge" style="display:none;">0</span></a>
+        <a href="wishlist.html" class="nav-icon-btn wishlist-link" aria-label="Wishlist" title="Wishlist" style="position:relative;"><img src="images/Heart.png" class="wishlist-icon-img" alt=""><span class="wishlist-icon-emoji" style="display:none;">♥</span><span class="wishlist-badge" style="display:none;">0</span></a>
         <a href="#" class="nav-icon-btn" aria-label="Notifications">
           <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 16.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
@@ -161,7 +161,7 @@
 
           <!-- Actions -->
           <div class="purchase-actions">
-            <button class="wishlist-btn" id="wishlist-btn" onclick="toggleWishlist(this)" aria-label="Add to wishlist">♡</button>
+            <button class="wishlist-btn" id="wishlist-btn" onclick="toggleWishlist(this)" aria-label="Add to wishlist">♡&#xFE0E;</button>
             <button class="btn btn--primary add-to-cart-btn" onclick="addToCart()">Add to cart</button>
           </div>
 
@@ -340,7 +340,7 @@
     }
 
     function paintWishlistBtn(btn, liked) {
-      btn.textContent       = liked ? '♥' : '♡';
+      btn.textContent       = liked ? '♥︎' : '♡︎';
       btn.style.color       = liked ? '#e11d48' : '';
       btn.style.borderColor = liked ? '#e11d48' : '';
       btn.style.background  = liked ? '#fff5f7' : '';

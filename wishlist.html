@@ -22,17 +22,17 @@
     <nav class="navbar__links" role="navigation" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
       <a href="service-detail.html">Services</a>
       <a href="success-stories.html">Success Stories</a>
       <a href="best-offers.html">Best Offers</a>
-      <a href="index.html#contact">Contact</a>
     </nav>
     <div class="navbar__actions">
       <a href="cart.html" class="nav-icon-btn cart-btn" aria-label="Cart" style="position:relative;">
         <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M3 3h2l2.4 9.6a2 2 0 0 0 1.9 1.4h7.4a2 2 0 0 0 1.9-1.4L20 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor"/><circle cx="17" cy="19" r="1.5" fill="currentColor"/></svg>
         <span class="cart-badge">0</span>
       </a>
-      <a href="wishlist.html" class="nav-icon-btn wishlist-link active" aria-label="Wishlist" title="Wishlist" style="position:relative;">♥<span class="wishlist-badge" style="display:none;">0</span></a>
+      <a href="wishlist.html" class="nav-icon-btn wishlist-link active" aria-label="Wishlist" title="Wishlist" style="position:relative;"><img src="images/Heart.png" class="wishlist-icon-img" alt=""><span class="wishlist-icon-emoji" style="display:none;">♥</span><span class="wishlist-badge" style="display:none;">0</span></a>
       <button class="nav-lang-btn">EN</button>
       <a href="signin.html" class="nav-signin-btn">Sign In</a>
     </div>
@@ -91,7 +91,7 @@
         <div class="wl-service-card__desc">${escapeHtml(item.desc || '')}</div>
         <div style="display:flex;gap:8px;margin-top:14px;">
           <a href="service-detail.html?service=${encodeURIComponent(item.id)}" class="btn btn--primary" style="flex:1;text-align:center;padding:10px;font-size:13px;">View →</a>
-          <button class="wl-like-btn liked" aria-label="Remove from wishlist" onclick="removeAndRender('${item.id}')">♥</button>
+          <button class="wl-like-btn liked" aria-label="Remove from wishlist" onclick="removeAndRender('${item.id}')">♥&#xFE0E;</button>
         </div>`;
       grid.appendChild(card);
     });

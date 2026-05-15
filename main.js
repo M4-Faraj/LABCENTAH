@@ -252,6 +252,12 @@ function updateWishlistBadge() {
     el.textContent = n;
     el.style.display = n > 0 ? '' : 'none';
   });
+  document.querySelectorAll('.wishlist-link').forEach(link => {
+    const img   = link.querySelector('.wishlist-icon-img');
+    const emoji = link.querySelector('.wishlist-icon-emoji');
+    if (img)   img.style.display   = n > 0 ? 'none' : '';
+    if (emoji) emoji.style.display = n > 0 ? '' : 'none';
+  });
 }
 
 /* Hydrate the homepage wishlist cards from storage */
@@ -263,10 +269,10 @@ function hydrateWishlistCards() {
     if (!btn) return;
     if (isInWishlist(id)) {
       btn.classList.add('liked');
-      btn.textContent = '♥';
+      btn.textContent = '♥︎';
     } else {
       btn.classList.remove('liked');
-      btn.textContent = '♡';
+      btn.textContent = '♡︎';
     }
   });
   const count = getWishlist().length;
